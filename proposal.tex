@@ -1,22 +1,36 @@
 \documentclass{article}
 
+% \usepackage{report}
 \usepackage{lipsum}
 \usepackage[margin=1in,left=1.5in,includefoot]{geometry}
 \usepackage{fancyhdr}
-\usepackage{titlesec}
 \usepackage[titles]{tocloft}
 \usepackage{graphicx}
 \usepackage[ampersand]{easylist}
 \usepackage{booktabs}
  % \usepackage[refpage]{nomencl}
 
-\pagestyle{fancy}
-\fancyhead{}
-\fancyfoot{}
-\fancyfoot[R]{\thepage\ }
-  \renewcommand{\headrulewidth}{0pt}
-  \renewcommand{\footrulewidth}{1pt}
-\AtBeginDocument{\renewcommand\contentsname{Table of Contents}}
+% Break paragraphs
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.8em}
+
+
+% Section heading before/after spacing
+\usepackage[explicit]{titlesec}
+\titlespacing{\section}{0pt}{0pt}{3em plus 0pt minus 5pt}
+\titlespacing{\subsection}{0pt}{2em plus 0pt minus 5pt}{2em plus 0pt minus 5pt}
+\titlespacing{\subsubsection}{0pt}{2em plus 0pt minus 5pt}{2em plus 0pt minus 5pt}
+\titleformat{\section}{\bfseries\large}{\thesection.}{1em}{\MakeUppercase{#1}}
+\titleformat{\subsection}{\bfseries\normalsize}{\thesubsection.}{1em}{#1}
+\titleformat{\subsubsection}{\bfseries\normalsize}{\thesubsubsection.}{1em}{#1}
+
+% Spacing before/after equations
+\AtBeginDocument{
+  \setlength\abovedisplayskip{1.5em plus 4pt minus 5 pt}
+  \setlength\belowdisplayskip{1.5em plus 4pt minus 5 pt}
+  \setlength\abovedisplayshortskip{1em plus 4pt minus 5 pt}
+  \setlength\belowdisplayshortskip{1em plus 4pt minus 5 pt}
+}
 
 \begin{document}
 \begin{titlepage}
@@ -27,7 +41,7 @@
     [0.05in]
     {\Large\textsc Pulchowk campus}\\
     [0.02in]
-    {\large\textsc Lalitput, Nepal}\\
+    {\large\textsc Lalitpur, Nepal}\\
     [2in]
     %\line(1,0){300}\\
 
@@ -49,9 +63,13 @@
     {\LARGE \textsc{\large Submitted by}}\\
     [0.05in]
     {\large Nabin Bhattarai (070bct522)}\\
+    [0.05in]
     {\large Miran Ghimire (070bct521)}\\
+    [0.05in]
     {\large Abhishek Paudel (070bct502)}\\
+    [0.05in]
     {\large Brihat Ratna Bajracharya (070bct513)}\\
+    [0.05in]
   \end{center}
 \end{titlepage}
 
@@ -69,9 +87,6 @@ Finally we would also like to thank all of our friends who have directly and ind
 \thispagestyle{empty}
 \cleardoublepage
 
-\listoftables
-\thispagestyle{empty}
-\cleardoublepage
 
 \listoffigures
 \thispagestyle{empty}
@@ -79,6 +94,9 @@ Finally we would also like to thank all of our friends who have directly and ind
 
 \section*{List Of Abbreviations}
 \thispagestyle{empty}
+CF : Collaborative Filtering\\
+API : Application Programming Interface
+
 \cleardoublepage
 
 \section*{Abstract}
@@ -141,14 +159,14 @@ Our sytem comprises of the two yet interdependent subsystems.
 
 \section{Methodology}
 
-\cleardoublepage
 \subsection{Design Approach}
 The proposed system is intended to be developed with the \textbf{``Incremental Developement Approach''}. Thus proposed system is expected to be evolved through the several versions until complete system has been developed interleaving the activity of specification, developement and validation.
-% \begin{figure}
-% 	\includegraphics[width = \linewidth]{}
-%         % <++>
-% \end{figure}
-\cleardoublepage
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=450px]{figs/incremental.jpg}
+  \caption{Incremental Development Approach \label{fig:incremental}}
+\end{figure}
+
 \subsection{Primary/Secondary Source of Data Collection}
 The data set used in our system are:
 \begin{enumerate}
@@ -163,19 +181,30 @@ The data set used in our system are:
   \item Music Lyrics
   \end{enumerate}
 \end{enumerate}
-\cleardoublepage
-
 
 \subsection{System Block Diagram}
-\cleardoublepage
-
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=400px]{figs/pbrs.png}
+  \caption{System Block Diagram \label{fig:pbrs}}
+\end{figure}
 
 \subsection{Algorithm to be used}
-
+We are planning to use Hybrid Recommendation Algorithm which comprises of Content, Collaborative Recommendation Algorithm.
+\begin{itemize}
+\item Content Based Recommendation System :\\
+  In this system, the features set are extracted from the content (Music data), which in turn are used for the recommendation.
+\item Collaborative Filtering :\\
+  In this system patterns of user behavior/model are observed for the recommendation.
+\end{itemize}
 \cleardoublepage
 
 \subsection{Algorithm Flow Diagram}
-\cleardoublepage
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=100px]{figs/algoflow.png}
+  \caption{Algorithm Flow Diagram \label{fig:algoflow}}
+\end{figure}
 
 \subsection{Description of each block/module}
 
@@ -193,27 +222,51 @@ The data set used in our system are:
 
 
 \subsection{Requirement List (Hardware/Software Tools)}
-\cleardoublepage
+Hardware Requirements :
+\begin{itemize}
+\item Server Specifications
+  \begin{itemize}
+  \item Minimum internal Memory 16GB
+  \item 1 TB secondary Memory
+  \end{itemize}
+\item Power Backup System for emergency power cut
+\end{itemize}
 
+Software Tools :
+\begin{itemize}
+\item Apache Web Server Application
+\item Python (version $>$ 3.5)
+\end{itemize}
 
 \subsection{Cost Estimation}
-\cleardoublepage
-
+Hardware Cost Estimation
+\begin{itemize}
+\item Domain Registration : \$30 / year
+\item Server Hosting : \$50 / month
+\end{itemize}
 
 \subsection{Time Schedule Estimation}
-\cleardoublepage
+\begin{figure}[ht!]
+  \includegraphics[width=450px]{figs/ganttchart.png}
+  \caption{Time Estimation Using Gantt-Chart \label{fig:ganttchart}}
+\end{figure}
 
 \subsubsection{Part A: Proposal to Mid-Term Defense}
-\cleardoublepage
+According to our Gantt-chart, till mid-term we are going to complete user model, feature extraction from music and simple web-interface front-end.
 \subsubsection{Part B: Mid-Term to Final Presentation}
-\cleardoublepage
-
+\begin{itemize}
+\item Implementation of Recommendation system
+\item Web-Interface
+\item Testing and Debugging 
+\item Documentation.
+\end{itemize}
 
 \section{Expected Outcomes/Result}
 The system is expected to recommed the music to the social media users based on their's proiles.
 \subsection{Achievements and Benefits}
 \begin{itemize}
-	\item The major advantage the people will receive the system is to easy access to the right music of their choice eliminating the conventional method of searching the right music. 
+\item The major advantage the people will receive from the system is the easy access to the right music of their choice eliminating the conventional method of searching the right music. It makes easier to get right music according to their taste for users.
+\item This is system is supposed to save user's time for the search of music of their taste.
 \end{itemize}
 \cleardoublepage
 
@@ -226,9 +279,9 @@ Besides the system can also have the mobile application to interact with the sys
 \cleardoublepage
 
 \section{Conclusion}
-\cleardoublepage
 Thus after the completion of the project, we will be able to make a recommendation system to the social media users based on their profiles eliminating the conventional method of searching the music of the choice.
-\section*{References}
+\cleardoublepage
+
 \bibliographystyle{ieeetr}
 \addcontentsline{toc}{section}{\numberline{}References}
 \bibliography{proposal}
