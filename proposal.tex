@@ -144,9 +144,10 @@ Our sytem comprises of the two yet interdependent subsystems.
 \cleardoublepage
 \subsection{Design Approach}
 The proposed system is intended to be developed with the \textbf{``Incremental Developement Approach''}. Thus proposed system is expected to be evolved through the several versions until complete system has been developed interleaving the activity of specification, developement and validation.
-\begin{figure}
-	\includegraphics[width = \linewidth]{}<++>
-\end{figure}
+% \begin{figure}
+% 	\includegraphics[width = \linewidth]{}
+%         % <++>
+% \end{figure}
 \cleardoublepage
 \subsection{Primary/Secondary Source of Data Collection}
 The data set used in our system are:
@@ -180,7 +181,14 @@ The data set used in our system are:
 
 \begin{enumerate}
 \item User Model\\
-  The User's information will be extracted from facebook profile, which will be used to create a user's model.
+  The User's information will be extracted from facebook profile. The extracted information will be used to create a user's model.
+\item Feature Extraction\\
+  Required features are extracted from Music data-set. These features will be used to classify the music data.
+\item Recommendation System\\
+  Using User Model and Feature Extraction module, using algorithm mentioned above we can recommend appropriate music to a user.
+\item Error Correction\\
+  The Error Correction module is used to increase the efficiency and accuracy of Recommendation system. Using the feedback of user we can modify the User's Model.
+\end{enumerate}
 \cleardoublepage
 
 
