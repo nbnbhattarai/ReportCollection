@@ -42,9 +42,12 @@
     {\Large\textsc Pulchowk campus}\\
     [0.02in]
     {\large\textsc Lalitpur, Nepal}\\
-    [2in]
-    %\line(1,0){300}\\
-
+    [0.2in]
+    %\line(1,0){100}\\
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=100px]{figs/tu-logo.jpg}
+\end{figure}
     %\normalized{\bfseries Minor Project Proposal on}\\
     {\LARGE \textsc{A Major Project Proposal on}}\\
     [0.5cm]
@@ -72,7 +75,7 @@
     {\large Brihat Ratna Bajracharya (070bct513)}\\
     [0.05in]
   \end{center}
-i\end{titlepage}
+\end{titlepage}
 
 \pagenumbering{roman}
 \setcounter{page}{2}
@@ -96,8 +99,9 @@ Finally we would also like to thank all of our friends who have directly and ind
 \section*{List Of Abbreviations}
 \thispagestyle{empty}
 CF : Collaborative Filtering\\
-API : Application Programming Interface
-
+API : Application Programming Interface\\
+TF-IDF: Term Frequency- Inverse Document Frequencya\\
+NLP : Natural Language Processing\\
 \cleardoublepage
 
 \section*{Abstract}
@@ -107,7 +111,7 @@ Therefore we have come with ``\textbf{Personality Based Music Recommendation Sys
 \cleardoublepage
 \pagenumbering{arabic}
 \section{Introduction}
-	``\textbf{Social Media Profile Based Music Recommendation}'' is the system to recommend the music to the users based his/her preference which is obtained from the social media. In this contemporary era of digital technologies, social media has become one of the prominent means for information sharing and communication. Likewise music has been one of the prominent market of entertainment. People listen to music everyday. The fact that music can blend with any emotion has made it's way to different sorts of people with different sorts of personality.\\
+	``\textbf{Personality Based Music Recommendation}'' is the system to recommend the music to the users based his/her preference which is obtained from the social media. In this contemporary era of digital technologies, social media has become one of the prominent means for information sharing and communication. Likewise music has been one of the prominent market of entertainment. People listen to music everyday. The fact that music can blend with any emotion has made it's way to different sorts of people with different sorts of personality.\\
 	Hence we have come up with the system to recommend the music to a different people based on their social media profiles.Previous work has shown that the information in users social media profiles is reflective of their actual personalities, not an idealized version of themselves, which makes social media platform for studying a people personality.\\
 	Several well studied personality models have been proposed, among which the Big Five model is established as the most popular one,which suggests that the regularity in someone's behavior over time and situations uniquely identifies his/her personality type along five dimesions: Openness to experience, Neuroticsm, Extroversion, Aggreableness and Conscientiousness.
 \cleardoublepage
@@ -201,7 +205,7 @@ The data set used in our system are:
   \includegraphics[width=400px]{figs/pbrs.png}
   \caption{System Block Diagram \label{fig:pbrs}}
 \end{figure}
-
+i
 \subsection{Algorithm to be used}
 \subsubsection{Personality Deduction}
 Personality of the user will be deduced using Big Five model of personality dimensions which will be done in the following ways:
@@ -233,7 +237,7 @@ Besides as the lyrics of the song is provided within the ``Million Song Dataset'
 
 \begin{enumerate}
 \item User Model\\
-  The User's information will be extracted from facebook profile. The extracted information will be used to create a user's model.
+  The User's information will be extracted from facebook profile. The extracted information will be used to create a user's model i.e personality prediction using Big 5 personality traits.
 \item Feature Extraction\\
   Required features are extracted from Music data-set. These features will be used to classify the music data.
 \item Recommendation System\\
