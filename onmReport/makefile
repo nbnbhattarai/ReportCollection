@@ -5,4 +5,4 @@ all : $(OBJS)
 	$(CC) $(OBJS)
 	$(CC) $(OBJS)
 clean :
-	rm -rf *.aux *.log
+	rm -rf *.aux *.log *.toc
