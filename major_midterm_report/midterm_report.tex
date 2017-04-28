@@ -2,7 +2,7 @@
 \usepackage{graphicx}
 \usepackage{lipsum}
 \usepackage{mathptmx}
-
+\usepackage{hyperref}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -129,7 +129,7 @@
       \subsection{Schedule Analysis}
       \begin{figure}[ht!]
 	      \includegraphics[width=450px]{aschedule.png}
-	      \caption{Activity of Node Diagram of Project}
+	      \caption{PERT Activity of Node Diagram of Project}
 	\end{figure}
 	\hfill \break
 	Critical path: A-B-C-E-H-I\\
@@ -159,6 +159,77 @@
 			\hline
 		\end{tabular}
 	\end{center}
+	\begin{enumerate}
+		\item \textbf{Personality DataSet Analysis:}\\
+		In order to predict a personality of social media users, myPersonality dataset was used. Dataset was obtained from: \url{http://mypersonality.org/wiki/doku.php?id=download_databases} \\
+		It consisted of:
+		\begin{enumerate}
+		\item AUTHID : \\ 
+			User Id, it was represented with a unique random number in order to protect user's identity.
+      \begin{figure}[h!]
+	      \centering
+	      \includegraphics[width=100px]{userid.png}
+		\caption{AuthId in dataset}
+	\end{figure}
+		\item STATUS : \\ 
+			It consisted of status posted by the user's in certain time period frame. It consisted of total of 9918 status post of more than 250 users.
+      \begin{figure}[h!]
+	      \includegraphics[width=450px]{status.png}
+		\caption{status in dataset}
+	\end{figure}
+		\item PERSONALITY CLASSIFICATION : \\
+			It classified personality as Big Five Personality traits which consisted of:\\
+		\begin{enumerate}
+		\item Openness to Experience:
+			curious, intelligent, imaginative. High scorers
+			tend to be artistic and sophisticated in taste and appreciate diverse views,
+			ideas and experiences.
+		\item Conscientiousness:
+			responsible, organized, preservering. Conscientious
+			individuals are extremely realiable and tend to be high achievers, hard work-
+			ers and planners.
+		\item Extroverion:
+			outgoing, amicable, assertive. Friendly and energetic, ex-
+			troverts draw inspiration from social situations.
+		\item Agreeableness:
+		cooperative, helpful,nurturing. People who score high in
+		agreeableness are peace-keepers who are generally optimistic and trusting of
+		others.
+		\item Neuroticism:
+			anxious, insecure, sensitive. Neurotics are moody, tense and
+			easily tipped into experiencing negative emotions.
+		\end{enumerate}
+      \begin{figure}[h!]
+	      \centering
+	      \includegraphics[width=100px]{personality.png}
+		\caption{personality classification in dataset}
+	\end{figure}
+		\end{enumerate}
+
+	\clearpage
+	\item Feature Extraction from Personality DataSet:\\
+	\begin{enumerate}
+	\item Bag of Words:\\
+		It is a one of the technique of ``Data Preprocessing'' in NLP in which each word in a document is treated as the feature. It consist of two models:
+	\begin{itemize}
+		\item Continuous-Gram Model:\\
+			It is the model in which every single words that appears in the document is treated as the feature in the sequence in which theyappear. In this model both the presence of the word and appearance sequence both matters.
+		\item Skip-Gram Model:\\
+			It is the model in which every single words that appears in the document is treated as the feature. However the sequence in which they appear doesn't matter.
+	\end{itemize}
+	The bag of words model is the most commonly used methods in sentence classification where the frequency of occurence of each word is used as a feture for training a classifier. After the transforming the text into the bag of words, we calculate various measures to characterize the text. The most common type of characteristics calculated from the bag of word is term-frequency i.e the number of times the term appears in the text.\\
+	In case, of our project, skip-gram model has been used because the existence of the word in a status posted by the user matters not the sequence in which they appear. After the bag of words extraction, term-frequency has been calculated for the classification purpose.
+	\item Stop Words:\\
+		It is also one of the technique of ``Data Preprocessing'' in NLP. It is commonly used with bag of words or any kind of models like n-gram in order to elimate the words that are of no use or very less use in the classification purpose. Such as article, preposition etc. The stop word vary within the project to project and depends on specific scenario.\\
+		In case of our, project stop words from nltk module has been used. It consist prepostion, article. Besides of the additional stop words also has been added as per the requirement of the project.
+	\clearpage
+      \begin{figure}[ht!]
+	      \includegraphics[width=600px]{stopWords.png}
+		\caption{stopwords used in the project}
+	\end{figure}
+	\end{enumerate}
+	\item Personality Analysis Model
+	\end{enumerate}
 	\subsection{Current Deliverable}
 	\begin{itemize}
 	\item Personality Prediction Model
