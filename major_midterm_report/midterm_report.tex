@@ -131,30 +131,73 @@
 	      \includegraphics[width=450px]{aschedule.png}
 	      \caption{Activity of Node Diagram of Project}
 	\end{figure}
-      \subsection{Budget Analysis}
-      \subsection{Scope Analysis}
-      \subsection{Process Analysis}
-      \subsection{Gantt Progress Chart}
+	\hfill \break
+	Critical path: A-B-C-E-H-I\\
+	Estimate time of completion: 16 weeks\\
+	Time Elapsed: 4 weeks
+	\subsection{Progress Analysis}
+	Activity to be completed at this time = A-B-C (4 weeks)\\
+	Activity Completed = A-B-C\\
+	We are almost within a schedule.
+      %\subsection{Budget Analysis}
+      %\subsection{Scope Analysis}
+      %\subsection{Process Analysis}
+      %\subsection{Gantt Progress Chart}
 
-      \cleardoublepage
       \section{Activity Analysis}
-      \subsection{Task completed since last report}
-      \subsection{Current tasks and deliverable}
-      \subsection{Short term future tasks and deliverable}
+      \subsection{Task completed till date}
+	\begin{center}
+		\begin{tabular}{|c|l|c|c|}
+			\hline
+				Activity & Description & Immediate Predecessors&Time(weeks)\\
+			\hline
+			A&Personality DataSet Analysis&-&1\\
+			\hline
+			B&Feature Extraction from Personality DataSet&A&3\\
+			\hline
+			C&Personality Analysis Model&B&4\\
+			\hline
+		\end{tabular}
+	\end{center}
+	\subsection{Current Deliverable}
+	\begin{itemize}
+	\item Personality Prediction Model
+	\end{itemize}
+    %  \subsection{Short term future tasks and deliverable}
+
+    %  \cleardoublepage
+    % \section{Previous problems and issues}
+    %  \subsection{Action item and status} %k vanya maile bujhena hai
+    %  \subsection{New or revised action items} %yo ni
 
       \cleardoublepage
-      \section{Previous problems and issues}
-      \subsection{Action item and status} %k vanya maile bujhena hai
-      \subsection{New or revised action items} %yo ni
-
-      \cleardoublepage
-      \section{New problems and issues}
+      \section{Current problems and issues}
       \subsection{Problems}
       \subsection{Issues}
       \subsection{Possible solutions}
       \subsubsection{Recommendation}
-      \subsubsection{Assignment of responsibility}
-      \subsubsection{Deadline}
+  %    \subsubsection{Assignment of responsibility}
+  %    \subsubsection{Deadline}
+      \section{Task to be completed in Future}
+	\begin{center}
+		\begin{tabular}{|c|l|c|c|}
+			\hline
+				Activity & Description & Immediate Predecessors&Time(weeks)\\
+			\hline
+			D&User Social Media Information Extraction&-&1\\
+			\hline
+			E&User Personality Analysis&D,C&2\\
+			\hline
+			F&Music DataSet Analaysis&-&1 \\
+			\hline
+			G&Feature Extraction from Music DataSet&F&2\\
+			\hline
+			H&Recommendation Model&G,E&4\\
+			\hline
+			I&Testing and Debugging&H&2\\
+			\hline
+		\end{tabular}
+	\end{center}
 \end{document}
 
 %%% Local Variables:
