@@ -1,6 +1,7 @@
 \documentclass[a4paper, 12pt, onepage]{article}
 \usepackage{graphicx}
 \usepackage{lipsum}
+\usepackage{mathptmx}
 
 
 \usepackage{fancyhdr}
@@ -76,6 +77,37 @@
 
       \cleardoublepage
       \section{Summary Of Process}
+      \begin{figure}[ht!]
+	      \includegraphics[width=450px]{pbrs.png}
+		\caption{Block Diagram of a System}
+	\end{figure}
+	\subsection{Task Analysis}
+	\begin{center}
+		\begin{tabular}{|c|l|c|c|}
+			\hline
+				Activity & Description & Immediate Predecessors&Time(weeks)\\
+			\hline
+			A&Personality DataSet Analysis&-&1\\
+			\hline
+			B&Feature Extraction from Personality DataSet&A&2\\
+			\hline
+			C&Personality Analysis Model&B&4\\
+			\hline
+			D&User Social Media Information Extraction&-&1\\
+			\hline
+			E&User Personality Analysis&D,C&2\\
+			\hline
+			F&Music DataSet Analaysis&-&1 \\
+			\hline
+			G&Feature Extraction from Music DataSet&F&2\\
+			\hline
+			H&Recommendation Model&G,E&4\\
+			\hline
+			I&Testing and Debugging&H&2\\
+			\hline
+
+		\end{tabular}
+	\end{center}
       \subsection{Schedule Analysis}
       \subsection{Budget Analysis}
       \subsection{Scope Analysis}
