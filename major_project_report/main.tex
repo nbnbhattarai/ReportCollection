@@ -1,0 +1,50 @@
+\documentclass[a4paper,12pt,onepage]{article}
+\usepackage{report}
+
+\title{Major Project Report}
+\author{Miran Ghimire}
+\date{\today}
+
+\begin{document}
+\pagenumbering{roman} % roman page numbers
+
+\input{sec/titlepage}
+
+\input{sec/acknowledgment}
+\input{sec/abstract}
+
+% Table of contents
+
+\newpage
+{
+  \setlength{\parskip}{0em}
+  \renewcommand\contentsname{Table of Contents} % This will change heading text
+  \tableofcontents \addcontentsline{toc}{section}{Table of Contents}
+}
+
+
+% List of figures
+
+\newpage
+\listoffigures \addcontentsline{toc}{section}{List of Figures}
+
+% List of tables
+
+\newpage
+\listoftables \addcontentsline{toc}{section}{List of Tables}
+
+
+%\input{sec/logistic-regression}
+\input{sec/introduction}
+\input{sec/literature_review}
+\input{sec/theoretical_background}
+\input{sec/methodology}
+\input{sec/system_design}
+\input{sec/system_implementation}
+\input{sec/tools_technologies}
+\input{sec/result}
+\input{sec/conclusion}
+
+\input{sec/references}
+
+\end{document}
