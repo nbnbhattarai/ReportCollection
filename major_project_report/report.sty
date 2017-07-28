@@ -5,17 +5,17 @@
 
 % Break paragraphs
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{1.8em}
+\setlength{\parskip}{1.1em}
 
 % Math tools
 \usepackage{mathtools}
 
 % Fonts
-%\usepackage{mathptmx}
+\usepackage{mathptmx}
 %\usepackage{txfonts}
-\usepackage{newtxtext,newtxmath}
-\usepackage{inconsolata}
-\usepackage[T1]{fontenc}
+%\usepackage{newtxtext,newtxmath}
+%\usepackage{inconsolata}
+%\usepackage[T1]{fontenc}
 
 % Line spacing
 % ------------
@@ -38,24 +38,28 @@
 \lfoot{}
 \cfoot{}
 \rfoot{}
-
+\setlength{\voffset}{-0.35in}
+\setlength{\headsep}{50pt}
+%\fancyheadoffset[R]{-2cm}
 % Section numbering format
 
 % Section heading before/after spacing
 \usepackage[explicit]{titlesec}
-\titlespacing{\section}{0pt}{0pt}{3em plus 0pt minus 5pt}
-\titlespacing{\subsection}{0pt}{2em plus 0pt minus 5pt}{2em plus 0pt minus 5pt}
-\titlespacing{\subsubsection}{0pt}{2em plus 0pt minus 5pt}{2em plus 0pt minus 5pt}
-\titleformat{\section}{\bfseries\large}{\thesection.}{1em}{\MakeUppercase{#1}}
+\titlespacing{\section}{0pt}{2em plus 2pt minus 2pt}{1em plus 2pt minus 2pt}
+\titlespacing{\subsection}{0pt}{1em plus 2pt minus 2pt}{0.5em plus 2pt minus 2pt}
+\titlespacing{\subsubsection}{0pt}{0.5em plus 2pt minus 2pt}{0.5em plus 2pt minus 2pt}
+
+\titleformat{\section}{\bfseries\large}{\thesection.}{1em}{#1}
 \titleformat{\subsection}{\bfseries\normalsize}{\thesubsection.}{1em}{#1}
 \titleformat{\subsubsection}{\bfseries\normalsize}{\thesubsubsection.}{1em}{#1}
 
+
 % Spacing before/after equations
 \AtBeginDocument{
-  \setlength\abovedisplayskip{1.5em plus 4pt minus 5 pt}
-  \setlength\belowdisplayskip{1.5em plus 4pt minus 5 pt}
-  \setlength\abovedisplayshortskip{1em plus 4pt minus 5 pt}
-  \setlength\belowdisplayshortskip{1em plus 4pt minus 5 pt}
+  \setlength\abovedisplayskip{1em plus 2pt minus 2 pt}
+  \setlength\belowdisplayskip{1em plus 2pt minus 2 pt}
+  \setlength\abovedisplayshortskip{0.5em plus 2pt minus 2 pt}
+  \setlength\belowdisplayshortskip{0.5em plus 2pt minus 2 pt}
 }
 
 % Float numbering
