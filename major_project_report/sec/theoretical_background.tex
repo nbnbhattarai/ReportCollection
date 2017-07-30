@@ -1,3 +1,230 @@
 \newpage
 \section{THEORETICAL BACKGROUND}
+\subsection{General}
+The project tries to study the impact of the personality on the collaborative recommendation engine. Thus, initially personality of the user has to be predicted which can be done via the user's study on social media i.e Facebookwhere a status update might be one of the good metric to perdict the personaity using \textbf{"document classification"} technique and the traits of the person are used as the similarity metric for similar user computation on \textbf{"collaborative filtering"}.
 
+\subsection{Document Classification}
+Document Classification is an example of Machine Learning(ML) in the form ofNatural Language Processing(NLP). By classifying text, we are aiming to assign one or more classes or categories to a document, making it easier to manage or sort. 
+Broadly speaking, there are two classes of ML techniques:
+\begin{enumerate}
+\item Unsupervised: In unsupervised method, model is reponsible for clustering of a similar document.
+\item Supervised: In supervised methods, a model is created based on training set. Categories are predefined and documents within the training dataset are manually tagged with one or more category labels. A classifier is then trtrained on the dataset which means it can predict a new document's category from then on. "This is the technique that has been used in the project."
+\end{enumerate}
+
+Supervised Document Classification comprises of series of steps which are briefly described below:
+\subsubsection{Obtaining a dataset}
+The quality of the tagged dataset is by far the most important component of a statistical NLP classifier. The dataset needs to be large enough to have an adeuqate number of document in each class. The datasets also needs to be of a high enough quality in terms of how distinct the documents in the different categories are from each other to allow a clear delineation between categories \cite{kd}.
+
+\subsubsection{Preprocessing}
+Preprocesing or Data preprocessing is a data mining technique that involvesttransforming raw data into an understandable format(as per requirement of the project may differ from the need of the project).
+It comprises of various steps:
+\begin{itemize}
+\item Data Cleaning: Data is cleansed through processes such as filling in missing values, smoothing the noisy data or resolving the inconsistencies in the data.
+\item Data Integration: Data with different representation are put together and conflicts within the data are resolved.
+\item Data Transformation: Data is normalized, aggregated and generalized.
+\item Data Reduction: This step aims to present a reduced representation of the data in a data warehouse.
+\item Data Discretization: This involves the reduction of a number of values of a continuous attribute by dividing the range of attribute intervals. \\
+\end{itemize}
+The preprocessing carried out in the project are:
+\begin{enumerate}
+\item Removal of StopWords:
+In computing, stop words are words which are filtered out prior to, or after processing of natural language data(text). There is not one definite list of stop words which all tools use and such a filter is not always used. Any group of words cab be chosen as the stopwords for a given purpose. By removing the stopwords during data pre-processing we reduce the compuatational complexity of the program and hence the project can run in an effective way \cite{stopwords}.
+\item Convert every characters to lowercase:
+This step is carried out in order to remove the distinction between the same words written in upper and lower case, so that model doesn't treat them differently.
+\item Sentence level processing/tokenization:
+In lexical analysis, tokenization is the process of breaking a stream of text up into words, phrases, symbols or other meaningful elements called tokens. Here in the project sentences are tokenized into the words and some more preprocessing are applied after that.
+\item Stemming:
+In linguistic morphology and information retrieval, stemming is the process for reducing inflected(or sometimes derived) words to their stem, base or root form generally a written word form. The stem need not be identical to themorphological root of the word. It is usually sufficent that related words map to the same stem, even if this stem is not itself a valid root. It is genearlly a implemented as the rule based system for stemming for words \cite{porter}.
+\item Pos tagging:
+In corpus linguistics, a part of speech tagging, also called grammatical tagging or word-category disambiguation, is the process of marking up a word ina text(corpus) as corresponding to a particular part of speech, based on it's definition as well as context i.e relationship with adjacent and related words in a phrase, sentence, or paragraph \cite{pos}. This aids in removal of unwanted part of speech in the sentences and helps to build the better model. The parts of speech ignored by our model is: noun.
+\end{enumerate}
+
+\subsubsection{Feature Extraction}
+\begin{enumerate}
+\item Bag of Words:
+ The bag of words model is a simplying representation used in natural language processing and information retrieval(IR). In this model, a text (such as sentence or a document) is represented as the bag disregarding grammer and even worder order but keeping multiplcity. The bag of words model is commonly used in methods of document classification where the frequency or occurence of each word is used as a feature for training a classifier. It is comparable to the skipgram model of the unigram in the language model \cite{vector}
+
+\item Feature Vector Creation: 
+ Feature Vector Creation is the process of conversion of bag of words model of into the vector form where by each words are represented with their frequencies(tf-idf). For feature vector creation initally a vocbulary is bulit using all of the corpus available in dataset which helps to create a vector space model for words and feature vector are derived from the each corpus accordingly \cite{vector}.
+\end{enumerate}
+
+\subsubsection{Model Creation}
+It is a classification algorithm used for the classification of personality in the project. Here we have implemented Naive Bayes as the classification alogrithm.
+\begin{itemize}
+\item Naive Bayes: 
+Naive Bayes is one of the model used for the classification under the``Bayesian Classifier''. In machine learning, Naive Bayes classifier are the family of simple probablistic classifiers based on Baye's theory with the assumption of ``independence'' between the features. If the depedence between the features exists Bayesain Network will be used for the classification. The major advantage of the Naive Bayes is it's simplicity and highly scablility and ability to work on huge dataset too. Despite the oversimplified assumption, Naive Bayes have worked quite well in many complex real world situation.
+They are probabilistic, which means that they calculate the probability of each category for a given sample, and output the category with the highest one. It is comparable to the unigram language model created on each set of classes. It is widely used for text classification which used in various fields like email sorting, language detection etc. \\
+There are various variation of Navie Bayes which are:
+\begin{enumerate}
+\item Multi-variate Bernoulli Naive Bayes: It is used whenever the feature vectors are binary i.e occurence of the feature is important rather than it's count.
+\item Multinomial Naive Bayes: It is typically used for discrete counts i.e whenever the frequency of occurence of the feature vector is important.
+\item Gaussian Navie Bayes: In this model, we assume that the feature follows a normal distribution. Instead of discrete counts, we have continuous features.
+\end{enumerate}
+In the project, multinominal naive bayes is used as the classifier asfor personality prediction the frequence of occurence of each featureis the feature vector is important and distribution of the feature isin discrete form.
+\end{itemize}
+
+\subsubsection{Multinominal Naive Bayes}
+\paragraph{Problem Formulation}\hfill 
+
+In order to understand how Naive Bayes classifiers \cite{naive} work, we have to briefly understand the concept of Bayes' rule. The probabililty model was formulated by Thomas Bayes.\\
+Given the set of features $(x_1,x_2,x_3,\cdots, x_n)$, \\
+Mathematically Bayes therorem can be written as:
+\begin{equation}\label{eq:1}
+P(C_{k}|x) = \frac{(P(C_{k}) * P(x|C_{k})} { P(x)}
+\end{equation}
+where,\\
+$P(C_{k} |x)$ is the posterior probability of class 'c' given the attributes x \\
+$P(C_{k})$ is the prior probability of class \\
+$P(x|C_{k}$ is the likelihood which is the conditional probability of attributes being in the given class $C_k$.\\
+$P(x)$ is called evidence \\
+$k$ is used to denote the class label \\
+Naive Bayes makes the independence assumption, so that \ref{eq:1} can be written as:
+\begin{align}
+\begin{split}\label{eq:naive}
+P(C_{k}|x) = argmax \frac{(P(C_{k}) * P(x_1|C_{k}) * P(x_2|C_{k})*.....* (P(x_n|C_{k})} { P(x)} \\
+\approx  (P(C_{k}) * P(x_1|C_{k}) * P(x_2|C_{k})*.....* (P(x_n|C_{k})
+\end{split}
+\end{align}
+which is the required equation of Naive Bayes used for the classification of document.
+
+\paragraph{Additive Smoothing}\hfill
+
+In statistics, additive smoothing \cite{additive}, also called Laplace smoothing is atechnique used to smooth categorical data. Give an observation $x = (x_1,x_2,\cdots,x_d)$ from a multinomial distribution with N trials and paramater vector $\theta = (\theta_1,\theta_2,\cdots,\theta_d)$, a smoothed version of data given the estimator:
+\begin{equation}\label{eq:smooth}
+	\theta_i = \frac{x_i + \alpha}{N+ \alpha d}
+\end{equation}
+When $\alpha = 1 $ in \ref{eq:smooth}, it's called add one Laplace smoothing which has been used as the smoothing technique in the project in order to cancel out the effect of zero term by assigning them a small probability.
+
+\paragraph{Underfitting}\hfill
+
+Underfitting \cite{naive} in the Naive Bayes Classifier, can occur if the probabilities result from conditional and prior are very small, in this case in order to prevent the program from underfitting, resulting from themultiplication of the very small terms, log can be used in \ref{eq:naive}, after which final equation becomes:
+
+\begin{equation}
+P(C_k|x) = \log p(C_k) + \sum_{i=1}^{k} \log(x|C_k) 
+\end{equation}
+which is the final equation used in the project for the classification of user's status on facebook into the personality.
+
+\paragraph{Overfitting}\hfill
+
+In order to reduce the overfitting and finding the best model for theclassifier, $k^{th}$-fold cross validation, technique has been used. The major advantage of this method is that all observations are used for both training and testing and each observation is used for testing exactly once \cite{cross}. \\
+In the project $5^{th}$-fold cross validation technique has been applied in which the data set is divided into the 5 test cases and train cases and classifier is trained on each of those cases.
+
+\paragraph{Optimization}\hfill
+
+Naive Bayes classifier, as seen in \ref{eq:naive}, classifies features set into a class via the mulitplication of the prior and conditional probability which requires their computation each time the classifier tries to classify the feature into class.
+
+In order to solve the above problem, conditional and prior probability is precomputed and stored in \textbf{``HashTable''} \cite{naive}, where the conditional probability of each feature set is stored, which can be easily be retrieved and used for the classification. Here hashtable has been implemented as dictionary object in python as dictionary in low level are stored as hash value pair in memory.
+
+After the detection of the personality, this information is used as the metric for computation of similar user, in the recommendation engine(collaborative filtering) in order to observe it's effect on the recommendation.
+
+\subsection{Data Analysis}
+Data Analysis \cite{analysis} is a primary component of data mining and business intelligence and is key to gaining the insight that derives business decisions. Data analysis is a proven way for organizations and enterprises to gain the information they need to make better decisions, server their customers and increase productiviy and revenue. Besides, with the growth of internet, there is so much of digital data and information available and data analysis has become more necessary than ever. 
+Some of the data analysis techniques are:
+\begin{itemize}
+	\item Descriptive
+	\item Predictive
+	\begin{itemize}
+		\item Prescriptive
+		\begin{itemize}
+			\item Recommdender System
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+\subsection{Recommender System}
+Recommender systems were originally defined as ``people provide recommendations as inputs, which the system then aggregates and directs toappropriate recipients'', like using experts knowledge as input for the system to enrich it's ability to recommend to people according to the given knowledge. However, now the term has a broader connotation,describing any system that produces individualized recommendations as output or has the effect of guiding the user in a personalized way to interesting or useful objects in a large space of possible options \cite{rdef}.
+
+Recommender systems are information filtering systems that deal with the problem of information overload by filtering vital information fragement out of large amount of dynamically generated information according to user's preferences, interest, or observed behavior about item. Recommender system has the ability to predict whether a particularuser would prefer an item or not based on the user's profile.
+
+Recommender system are benefical to both service providers and users.Recommendation systems have also proved to improve decision making process and quality. In e-commerce setting, recommender system aids to enhace revenues, for the fact that they are effective means of selling more products. In scientific librarires, recommender system supports users by allowing them to move beyond catalog searches. Therefore, the need to use efficient and accurate recommendation techniques within a system that will provide relevant and dependable recommendations for users cannot be over-emphasized.
+
+Recommender system tpyically produce a list of recommendation in one of two ways- through collaborative and content filtering. Collaborative filtering approaches build a model from a uer's past behavior(items previously purchased or selected and numerical rating given to those items) as well as similar decisions made by other users. This modelis then used to predict items(or ratings for items) that the user may have an interest in. Content-based filtering approaches utilize a series of discrete characteristics of an item i.e item-profile based on the purchase history of the user i.e with the help of user-profile in order to recommend items. The Hybird recommeder system is the one in which the one or more recommender system is combined for the recommendation. Besides there are several categorization of recommendation system which is enlisted below:
+\begin{enumerate}
+	\item Knowledge Based Recommendation(Searching)
+	\item Utility Based Recommendation
+	\item Demographic Based Recommendation
+	\item Content Based Recommendation
+	\item Collaborative Recommendation
+		\begin{enumerate}
+			\item Memory Based(user based, item based)
+			\item Model Based(clustering techniques, association techniques, bayesian networks, neural networks, latent factor)
+		\end{enumerate}
+	\item Hybrid Recommedation
+		\begin{enumerate}
+			\item Weighted
+			\item Switching
+			\item Mixed
+			\item Feature Combinations
+			\item Cascade
+			\item Feature Augmentation
+			\item Meta Level
+		\end{enumerate}
+\end{enumerate}
+\subsubsection{Knowledge based Recommendation(Searching)}
+Knowledge based recommendation system is based on the explicit knowledge about item classification, user interest and recommendation standard(which item should be recommend in which feature). It is an alternative approach to the collaborative filtering.
+\paragraph{Working Mechanism}\hfill
+
+\begin{enumerate}
+	\item Recommendation: Here recommendation is made based on explict knowledge.
+\end{enumerate}
+\paragraph{Pros}\hfill
+
+\begin{itemize}
+	\item Free from cold-start problem.
+	\item Sensitive to changes of preference.
+	\item Can include non-product features.
+	\item Can map from user needs to products.
+\end{itemize}
+\paragraph{Cons}\hfill
+
+\begin{itemize}
+	\item Suggestion ability is static(no learning model)
+\end{itemize}
+
+\subsubsection{Utility based Recommednation}
+\paragraph{Working Mechanism}\hfill
+\begin{enumerate}
+	\item Hell
+\end{enumerate}
+\paragraph{Pros}\hfill
+\paragraph{Cons}\hfill
+
+\subsubsection{Demographic based Recommendation}
+\paragraph{Working Mechanism}\hfill
+\begin{enumerate}
+	\item Hell
+\end{enumerate}
+\paragraph{Pros}\hfill
+\paragraph{Cons}\hfill
+\subsubsection{Content based Filtering}
+Content based technique is a domain-dependent algorithm and it emphasizes more on the analysis of the attributes of items in order to generate predictions. When documents such as web pages, publications and news are to be recommended, content-based filtering technique is the most sucessful. In content-based filtering technique, recommendation is made on the user profiles using features extracted from the content of items the user has evaluated in the past. 
+\paragraph{Working Mechanism}\hfill
+
+\begin{enumerate}
+	\item Item Profile Creation: Here initally, item profile is created in order with the help of it's feature. In case of movie, music meta data available can be used for item profile creation.
+	\item User Profile Creation: User profile is created, based on their interaction with the item i.e with the help of the their rating on the items. Hence user profile is created with the help of the item profile either by taking the average of item-profile or weighted average of item-profile.
+	\item Recommendation: Cosine similarity is used for the similarity computation between the user profile and the profile of items to be recommended, items with the highest similarity are recommended to the user. 
+\end{enumerate}
+
+\paragraph{Pros}\hfill
+\begin{itemize}
+\item Implicit feedback is sufficient.
+\item Adaptive quality improves over time.
+\end{itemize}
+\paragraph{Cons}\hfill
+\begin{itemize}
+\item New user ramp-up problem(cold start problem).
+\item Quality dependent on large historical data set.
+\item Stability Vs Plasticity problem.
+
+\end{itemize}
+Content based filtering can outperform the collaborative, whenever the the ratio of item to user is very high.
+
+\subsubsection{Collaborative Filtering}
+\paragraph{Working Mechanism}\hfill
+\begin{enumerate}
+	\item Hell
+\end{enumerate}
+\paragraph{Pros}\hfill
+\paragraph{Cons}\hfill
+\subsubsection{Hybrid Recommedendation System}
+All of the known recommendation techniques have strengths and weakness and many researchers choose to combine the techniques in different ways.

@@ -2,10 +2,10 @@
 
 % Geometry
 \usepackage[left=3.5cm,right=2cm,top=3.5cm,bottom=2cm]{geometry}
-
 % Break paragraphs
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1.1em}
+\setcounter{secnumdepth}{5}
 
 % Math tools
 \usepackage{mathtools}
@@ -48,10 +48,14 @@
 \titlespacing{\section}{0pt}{2em plus 2pt minus 2pt}{1em plus 2pt minus 2pt}
 \titlespacing{\subsection}{0pt}{1em plus 2pt minus 2pt}{0.5em plus 2pt minus 2pt}
 \titlespacing{\subsubsection}{0pt}{0.5em plus 2pt minus 2pt}{0.5em plus 2pt minus 2pt}
+%\titlespacing{\paragraph}{0pt}{0.5em plus 2pt minus 2pt}{0.5em plus 2pt minus 2pt}
+
 
 \titleformat{\section}{\bfseries\large}{\thesection.}{1em}{#1}
 \titleformat{\subsection}{\bfseries\normalsize}{\thesubsection.}{1em}{#1}
 \titleformat{\subsubsection}{\bfseries\normalsize}{\thesubsubsection.}{1em}{#1}
+%\titleformat{\paragraph}[hang]{\bfseries\normalsize}{\paragraph.}{1em}{}
+
 
 
 % Spacing before/after equations
