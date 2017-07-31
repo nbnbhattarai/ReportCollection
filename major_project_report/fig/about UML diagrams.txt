@@ -1,0 +1,23 @@
+About UML diagrams
+
+
+USE CASE 
+----------------------------------------------------------------------[
+A use case diagram represents user's interaction with the system that shows the relationship between the user and the different use cases in which the user is involved. A use case diagram can identify different types of users of a system, different use cases as well. A use-case diagram provides higher-level view of the system. Use case diagrams are the blueprints for the system. The use cases are shown as ovals, actors as stick people (even if they are machines), with lines (known as associations) connecting use cases to the actors who are involved with them. A box around the use cases emphasizes the boundary between the system (defined by the use cases) and the actors who are outside of the system. In our case, actor 'user' can log in to the system, allow system to access his profile information and view output or result from the system. Similar is the case for 'system' and 'sys_admin'.
+
+ERD
+----------------------------------------------------------------------
+An Entity-Relationship model describes inter-related things of interest in a specific domain of knowledge. In software development, ER model has become an abstract data model that defines a data/information structure that can be implemented in a database, typically a relational database. In our database, we have separate tables for user, music, recommendation and session .Each table has several attributes that best describe the table. To get required information, say we need to print details of particular user, we need to access database and more than one tables to retrieve data. We need certain relationship between each tables in our database and a common attribute to map tuples of one table to another. ER Diagram provides visual reference to complete database at one glance. We can develop database looking at the ER Diagram and later use it as reference for further improvement. 
+
+
+CLASS DIAGRAM
+----------------------------------------------------------------------
+A Class Diagram in Unified Modelling Language (UML) is a type of static structure diagram that describes the structure of a system by showing the system's classes, their attributes, operations (or methods), and relationship among objects. This diagram is considered as main building block of object-oriented modelling. The classes in a class diagram represent both the main element, interactions in the application,  and the classes to be programmed. Each class comprises of three compartment, top compartment contains name of class, middle compartment consist of attributes of the class and bottom compartment contains methods that class can execute. Class diagram for PBMRS is shown below. The class diagram consist of instance level relationships. Association represents a family of links and consist of role name, multiplicity, navigational direction, visibility and other properties. Ex. between User and Status, the multiplicity is in a way that one user can post zero or more status. There is aggregation link between two which represent that status class is only valid if user class is present(since at least one user is required to post status). Generalization is shown in between user_feature and feature as well as music_feature and feature which signifies that one of the two related class is considered to be specialized form of the other. Here feature is more general and *_feature is specialized class. Other details are self explanatory and sufficient.
+ 
+
+ACTIVITY DIAGRAM 
+--------------------------------------------------------------------------------------
+Activity Diagram describes the dynamic aspects of the system. It diagram shows user oriented view of system operation. We have made activity diagram using swim-lanes. A swim lane is a visual element that distinguishes job sharing and responsibilities for sub-processes. In our system's activity diagram, we have three swim-lanes and we have separated job/responsibilities accordingly. Each step is continuation of previous step. Decision is taken wherever necessary and fork and join is used to divide or attach work flow. The objective of making activity diagram is similar to objectives of other UML Diagrams. Only difference is that it is used to show message flow between activities. Below is the activity Diagram for PBMRS. 
+
+
+
