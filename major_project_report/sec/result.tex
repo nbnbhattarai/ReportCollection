@@ -14,7 +14,7 @@ We analyzed the effect of number of iterations on the f-measure of the logistic 
 \begin{figure}[!ht]
 \centering
 \includegraphics[width = \textwidth ]{fig/f-measure_logistic.png}
-\caption{f-measure vs number of iterations (logistic regression)}
+\caption{F-Measure vs Number of Iterations (Logistic Regression)}
 \label{fig:f-measure_logistic}
 \end{figure}
 
@@ -31,7 +31,7 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
  Actual:No&12 & 23 \\
  \hline
 \end{tabular}
-\caption{Confusion matrix of Logistic Regression Model (Openness)}
+\caption{Confusion Matrix of Logistic Regression Model (Openness)}
 
 \end{table}
 
@@ -46,7 +46,7 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
  Actual:No&11 & 15 \\
  \hline
 \end{tabular}
-\caption{Confusion matrix of Logistic Regression Model (Conscientiousness)}
+\caption{Confusion Matrix of Logistic Regression Model (Conscientiousness)}
 \end{table}
 
 \begin{table}[!ht]
@@ -74,7 +74,7 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
  Actual:No&14 & 13 \\
  \hline
 \end{tabular}
- \caption{Confusion matrix of Logistic Regression Model (Agreeableness)}
+ \caption{Confusion Matrix of Logistic Regression Model (Agreeableness)}
 \end{table}
 
 \begin{table}[!h]
@@ -98,7 +98,7 @@ The following figure shows f-measure of the naive bayes model for Big Five Perso
 \begin{figure}[!ht]
 \centering
 \includegraphics[width = \textwidth ]{fig/f-measure_naivebayes.png}
-\caption{f-measure of Naive Bayes model}
+\caption{F-Measure of Naive Bayes Model}
 \label{fig:f-measure_naivebayes}
 \end{figure}
 
@@ -114,7 +114,7 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
  Actual:No&8 & 27 \\
  \hline
 \end{tabular}
-\caption{Confusion matrix of Naive Bayes (Openness)}
+\caption{Confusion Matrix of Naive Bayes (Openness)}
 
 \end{table}
 
@@ -129,7 +129,7 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
  Actual:No&4 & 22 \\
  \hline
 \end{tabular}
-\caption{Confusion matrix of Naive Bayes (Conscientiousness)}
+\caption{Confusion Matrix of Naive Bayes (Conscientiousness)}
 \end{table}
 
 \begin{table}[!ht]
@@ -143,7 +143,7 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
  Actual:No&12 & 7 \\
  \hline
 \end{tabular}
- \caption{Confusion matrix of Naive Bayes (Extraversion)}
+ \caption{Confusion Matrix of Naive Bayes (Extraversion)}
 \end{table}
 
 \begin{table}[!ht]
@@ -157,7 +157,7 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
  Actual:No&13 & 14 \\
  \hline
 \end{tabular}
- \caption{Confusion matrix of Naive Bayes (Agreeableness)}
+ \caption{Confusion Matrix of Naive Bayes (Agreeableness)}
 \end{table}
 
 \begin{table}[!ht]
@@ -171,96 +171,96 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
  Actual:No&15 & 5 \\
  \hline
 \end{tabular}
- \caption{Confusion matrix of Naive Bayes (Neuroticism)}
+ \caption{Confusion Matrix of Naive Bayes (Neuroticism)}
 \end{table}
 
 
 \subsection{Evaluation of Recommendation System}
-%\begin{table}
+The following table shows RMSE of various recommendation models:
 
 \begin{center}
-  \begin{table}
+  \begin{table}[!h]
     \begin{tabular}{| l | c |}
       \hline
       {\bf Recommendation Model} & {\bf RMSE}\\
       \hline
       Global Baseline Algorithm & 2.86\\
       \hline
-      User to User Collaborative Filtering with user & \\ rating matrix & 3.89\\
+      User to User Collaborative Filtering with User & \\ Rating Matrix & 3.89\\
       \hline
-      User to User Collaborative Filtering with user & \\ personality matrix & 3.20\\
+      User to User Collaborative Filtering with User & \\ Personality Matrix & 3.20\\
       \hline
-      User to User Collaborative Filtering with user & \\ rating matrix with combination of global baseline & 4.72\\
+      User to User Collaborative Filtering with User & \\ Rating Matrix with combination of Global Baseline & 4.72\\
       \hline
-      User to User Collaborative Filtering with user & \\ personality matrix with combination of global baseline & 3.10\\
+      User to User Collaborative Filtering with User & \\ Personality Matrix with combination of Global Baseline & 3.10\\
       \hline
-      User to User Collaborative Filtering with weighted & \\ average of user personality matrix and user rating matrix & 3.2\\
+      User to User Collaborative Filtering with Weighted & \\ Average of User Personality Matrix and User Rating Matrix & 3.2\\
       \hline
-      User to User Collaborative Filtering with weighted & \\ average of user personality matrix and user rating matrix & \\ with combination of Global Baseline Algorithm & 3.04\\
+      User to User Collaborative Filtering with Weighted & \\ Average of User Personality Matrix and User rating Matrix & \\ with combination of Global Baseline Algorithm & 3.04\\
       \hline
-      Matrix factorization & 0.88\\
+      Matrix Factorization & 0.88\\
       \hline
     \end{tabular}
     \caption{RMSE of Recommendation System Models}
   \end{table}
 \end{center}
 
-Effects of change in number of nearest neighborhood in the different collaborative filtering models.
-\begin{figure}[h]
+The following figures show effects of change in number of nearest neighborhood in the different collaborative filtering models.\\
+
+\begin{figure}[!ht]
   \centering
     \includegraphics[width=1\textwidth]{fig/rmse_cf.png}
-    \caption{RMSE of collaborative filtering with user rating matrix}
+    \caption{RMSE of Collaborative Filtering with User Rating Matrix}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
   \centering
     \includegraphics[width=1\textwidth]{fig/rmse_cf_personality.png}
-    \caption{RMSE of collaborative filtering with similarity interm of personality matrix}
+    \caption{RMSE of Collaborative Filtering with similarity interm of Personality Matrix}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
   \centering
     \includegraphics[width=1\textwidth]{fig/rmse_cf_global.png}
-    \caption{RMSE of collaborative filtering combined with global baseline with user rating matrix}
+    \caption{RMSE of Collaborative Filtering combined with Global Baseline with User Rating Matrix}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
   \centering
     \includegraphics[width=1\textwidth]{fig/rmse_cf_global_personality.png}
-    \caption{RMSE of collaborative filtering combined with global baseline with user personality matrix}
+    \caption{RMSE of Collaborative Filtering combined with Global Baseline with User Personality Matrix}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
   \centering
     \includegraphics[width=1\textwidth]{fig/rmse_cf_average.png}
-    \caption{RMSE of collaborative filtering with user rating and personality matrix}
+    \caption{RMSE of Collaborative Filtering with User Rating and Personality Matrix}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
   \centering
     \includegraphics[width=1\textwidth]{fig/rmse_cf_combined_average.png}
-    \caption{RMSE of collaborative filtering with user rating and personality matrix combined with global baseline}
+    \caption{RMSE of Collaborative Filtering with User Rating and Personality Matrix combined with Global Baseline}
 \end{figure}
 
 
+\cleardoublepage
 \subsubsection{Latent Factor}
 The following figure shows the RMSE of matrix factorization when number of iterations is varied:
 
-\cleardoublepage
-
 \begin{figure}[!ht]
 \centering
-\includegraphics[width = \textwidth ]{fig/rmse_step.png}
-\caption{RMSE of matrix factorization vs number of iterations}
+\includegraphics[width = 0.97\textwidth ]{fig/rmse_step.png}
+\caption{RMSE of Matrix Factorization vs Number of Iterations}
 \label{fig:rmse_step}
 \end{figure}
 
 The following figure shows the RMSE of matrix factorization when k is varied with number of iterations is fixed at 1000:
 \begin{figure}[!ht]
 \centering
-\includegraphics[width = \textwidth ]{fig/rmse_k.png}
-\caption{RMSE of matrix factorization vs number of latent factors}
+\includegraphics[width = 0.97\textwidth ]{fig/rmse_k.png}
+\caption{RMSE of Matrix Factorization vs Number of Latent Factors}
 \label{fig:rmse_k}
 \end{figure}
 
-Comparison of the above models, we can conclude that the result of user to user collaborative filtering with the personality has slightly better result than the user to user collaborative filtering with the user rating matrix but the matrix factorization outperforms them all. Besides, the result of weighted average of user similarity matrix with rating and personality also performs better than only a rating matrix but has a comparable result with the user to user collaborative filtering with personality to compute the similarity. Currently the system uses \textbf{switching hybrid} methodology in order to recommend the user among the different models used in the system i.e one with the least RMSE.
+Comparison of the above models, we can conclude that the result of user to user collaborative filtering with the personality has slightly better result than the user to user collaborative filtering with the user Rating matrix but the matrix factorization outperforms them all. Besides, the result of weighted average of user similarity matrix with rating and personality also performs better than only a rating matrix but has a comparable result with the user to user collaborative filtering with personality to compute the similarity. Currently the system uses \textbf{switching hybrid} methodology in order to recommend the user among the different models used in the system i.e one with the least RMSE.
