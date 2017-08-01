@@ -44,14 +44,265 @@ In corpus linguistics, a part of speech tagging, also called grammatical tagging
 \item Bag of Words:
  The bag of words model is a simplying representation used in natural language processing and information retrieval(IR). In this model, a text (such as sentence or a document) is represented as the bag disregarding grammer and even worder order but keeping multiplcity. The bag of words model is commonly used in methods of document classification where the frequency or occurence of each word is used as a feature for training a classifier. It is comparable to the skipgram model of the unigram in the language model \cite{vector}
 
+\item Term Frquency - Inverse Document Frequency(TF-IDF):
+TF-IDF \cite{tfidf} is a common term weighting scheme. It is a statistical approach to evaluating the importance of term in a corpus. Typically tf-idf weight is composed by two terms: the first computes the normalized Term Frequency(TF) i.e the number of times a word appears in a document, divided by the total number of words in that document, the second term is the inverse doucment frequency(IDF) computed as the logarithm of the number of documents in the corpus divided by the document length i.e total number of terms in the document as a way of normalization.
+
+i.e
+\begin{equation}
+\begin{split}
+	TF = \frac{Number of times term t appears in a document}{Total number of terms in the document} \\ 
+	IDF = \log_e\frac{Total number of documents}{1+Number of documents with term t in it} \\ 
+\end{split}
+\end{equation}
+Now tf-idf can be obtained as:
+\begin{equation}
+	TF-IDF = tf * idf
+\end{equation}
 \item Feature Vector Creation: 
  Feature Vector Creation is the process of conversion of bag of words model of into the vector form where by each words are represented with their frequencies(tf-idf). For feature vector creation initally a vocbulary is bulit using all of the corpus available in dataset which helps to create a vector space model for words and feature vector are derived from the each corpus accordingly \cite{vector}.
 \end{enumerate}
 
 \subsubsection{Model Creation}
-It is a classification algorithm used for the classification of personality in the project. Here we have implemented Naive Bayes as the classification alogrithm.
-\begin{itemize}
-\item Naive Bayes: 
+It is a classification algorithm used for the classification of personality in the project. Here we have implemented Naive Bayes, Logistic Regression and KNN as the classification alogrithm.
+%\begin{itemize}
+\subsubsection{ kNN(k-Nearest Neighbors)}
+It is a one of the simplest non-linear classification alogrithm with no model and is also known as lazy classifier. By lazy classifier, it means that while training, it does not dow much expect for storing the data points. kNN looks to classify data only when the new data is given as input for the prediction. It takes k nearest neighbors, to the given input data and then decides which class it belongs to via majority voting. Nearest neighbors are found out through a predefined distance function.In the project consine similarity is used as the metric to compute how similar is input feature vector to the existing one in the database.\\
+
+The brief outline of the algorithm is given below:
+\begin{enumerate}
+	\item Calculate the distance or dissimilarity or similarity of the given input point with all other points.
+	\item Select k-nearest points from the given data point.
+	\item Count the distinct classes of the k-nearest point and assign the class with the maximum count to the given data point.
+
+	The algorithm uses different dissimilarity or similarity measures for different kinds of attributes of data. In the project, cosine similarity metric has been used in order to find out similar k-neighbors.
+
+Suppose $r_a = [r_a1,r_a2,\cdots,r_an]$ be the feature vector of the document a and  $r_b = [r_b1,r_b2,\cdots,r_bn]$ be the feature vector of the document b, then cosine similarity between document a and b can be obtained as:
+\begin{equation}
+	similarity_{a,b} = \frac{r_a1*r_b1 + r_a2*r_b2 +\cdots+ r_an*r_bn}{\sqrt{{r_a1}^2+{r_a2}^2+\cdots+{r_an}^2} * \sqrt{{r_b1}^2+{r_b2}^2+\cdots+{r_bn}^2} }  
+\end{equation}
+which is used as the metric to compute the $k$ similar document.
+\end{enumerate}
+\subsubsection{ Logistic Regression}
+In general, when we make a machine learning based software, we are basically
+trying to come up with a function to predict the output for future inputs based
+on the experience it has gained through the past inputs and their outputs.
+The past data is referred to as the {\em training set}.
+
+{\bf Logistic regression}\cite{ng} (also known as {\em logit regression} or {\em logit model}) is one of
+the most popular machine learning algorithms used for classification problem.
+Given a training set having one or more independent (input) variables where
+each input set belongs to one of predefined classes (categories), what
+logistic regression model tries to do is come up with a probability function
+that gives the probability for the given input set to belong to one of those
+classes. The basic logistic regression model is a binary classifier (having
+only 2 classes), i.e., it gives the probability of an input set to belong to
+one class instead of the other. If the probability is less than 0.5, we can
+predict the inputs set to belong to the latter class. But logistic regression
+can be hacked to work for multi-class classification problem as well by using
+concepts like ``{\em one vs. rest}''. What we basically do is create a classifier for
+each class that predicts the probability of an input set to belong to that
+particular class instead of all other classes. It is popular because it is a
+relatively simple algorithm that performs very well on wide range of problem
+domains.
+
+Actually, logistic regression is one of the techniques borrowed by machine
+learning from the field of statistics. Logistic regression was developed by
+statistician David Cox in 1958. The binary logistic model is used to estimate
+the probability of a binary response based on one or more predictor
+(or independent) variables (called {\em features}).
+
+The name ``{\em logistic}'' comes from the probability function used by this algorithm.
+The logistic function (also known as {\em sigmoid} function) is defined as:
+\begin{align}
+  \text{logistic}(x) = \text{sigmoid}(x)
+  = \frac{e^x}{1 + e^x}
+  = \frac{1}{1 + e^{-x}} \label{eqn:logit}
+\end{align}
+
+The graph of this function is given in Figure \ref{fig:sigmoid}.
+\begin{figure}[h!]\centering
+  \includegraphics[width=3in]{fig/sigmoid}
+  \caption{Graph of logistic (sigmoid) function}\label{fig:sigmoid}
+\end{figure}
+
+The logistic regression classifier uses the logistic function of the {\em weighed}
+(as well as biased) sum of the input variables to predict the probability of
+the input set belonging to a class (or category). The probability function is
+already fixed. The only thing that we can change while learning from different
+training set is the set of weight parameters ($\theta$) assigned to each feature.
+
+\paragraph{The Algorithm}\hfill
+
+Let,
+\begin{align}
+  m &= \text{number of samples in training set}
+  \nonumber\\
+  n &= \text{number of features} \ge 1
+  \nonumber\\
+  x &= \text{input feature vector} =
+  \begin{bmatrix}
+  x_0 \\ x_1 \\ x_2 \\ \vdots \\ x_n
+  \end{bmatrix}, x_0 = 1 \text{(always)}
+  \nonumber\\
+  y &= \text{class} \in \{ 1, 0 \} \text{ with 1 as primary class}
+  \nonumber
+\end{align}
+
+The training set for this machine learning algorithm is the set of $m$ training
+samples (examples).
+\begin{align}
+  \text{training set} = 
+  \left\{ (x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \cdots , (x^{(m)}, y^{(m)}) \right\}
+  \label{eqn:training-set}
+\end{align}
+
+The weight parameters for the $(n+1)$ features are given by:
+\begin{align}
+  \theta = 
+  \begin{bmatrix}
+    \theta_0 \\ \theta_1 \\ \theta_2 \\ \vdots \\ \theta_n
+  \end{bmatrix}
+  \nonumber
+\end{align}
+
+Then the hypothesis function used to predict the output $y$ for
+input feature set $x$ with parameter $\theta$ is given by:
+\begin{align}
+  \text{h}_{\theta}(x) = 
+  \text{sigmoid}\left( \sum_{i = 0}^{n} \theta_{i} x_{i}\right) =
+  \text{sigmoid}\left( \theta^{T}x \right) =
+  \frac{1}{1 + e^{-\theta^{T}x}}
+  \label{eqn:hypothesis}
+\end{align}
+
+Now the aim of this machine learning algorithms is to adjust the parameters
+$\theta$ to fit the hypothesis $h_{\theta}(x)$ with the real output $y$ of
+training set with minimum cost (error). For that, we need to define the cost
+function, preferably, a {\em convex} cost function. There are different types
+of cost functions. Linear regression, for instance, uses the sum of the squares
+of the errors as the cost function. But in logistic regression, since the output
+is not linear (even though the input is), this cost function turns out to be
+non-convex and there are not efficient algorithms that can minimize a non-convex
+function. Therefore, we define a logarithmic cost function $J(\theta)$ for logistic regression
+as follows:
+\begin{align}
+  \text{J}(\theta) = \frac{1}{m} \sum_{i=1}^{m}
+  \text{Cost} \left( \text{h}_\theta \left(x^{(i)} \right), y^{(i)} \right)
+  \label{eqn:j}
+\end{align}
+where,
+\begin{align}
+  \text{Cost} (h, y) &=
+  \begin{cases}
+    -\log (h) &\text{ for } y = 1 \\
+    -\log (1-h) &\text{ for } y = 0
+  \end{cases}
+  \nonumber\\
+  &= -y\log(h) - (1-y)\log(1-h)
+  \label{eqn:cost}
+\end{align}
+
+After we define an appropriate convex cost function J($\theta$), the machine
+learning algorithm basically boils down to finding parameter $\theta$
+that minimizes J($\theta$).
+\begin{align}
+  \min_{\theta} \quad \text{J}(\theta)
+\end{align}
+
+This can be achieved using varitous optimization algorithms. Some notable
+ones are Gradient descent, BFGS, Quasi-Newton, L-BFGS, etc. The gradient
+descent is the simplest one. It is a hill-climbing optimization algorithm
+that tries finds the local optima from the start point. But since our
+cost function J($\theta$) is convex, there is only one minima and that is the
+global minima.
+
+To find parameter $\theta$ that minimizes the cost function J($\theta$),
+we initial $\theta$ with small random values and then
+iterate the following until convergence:
+\begin{align}
+  \theta_j = \theta_j - \alpha \frac{\partial \text{J}(\theta)}{\partial \theta_j};
+  \quad j \in {0,1,2,\ldots,n}; \quad \alpha = \text{learning rate}
+  \nonumber
+\end{align}
+where,
+\begin{align}
+  \frac{\partial \text{J}(\theta)}{\partial \theta_j} =
+  \sum_{i=1}^{m} \left( \text{h}_\theta \left(x^{(i)}\right) - y^{(i)} \right) x^{(i)}_j
+\end{align}
+Note that all $\theta_j$'s must be updated simultaneously. This concept is called
+{\em batch learning}, contrary to {\em online learning} where the parameter is updated
+separately for every training example.
+
+The resulting parameter $\theta$ that minimizes the cost function J($\theta$) is
+the parameter of the learning model. Then we can use the hypothesis $h_\theta(x)$
+to predict the output $y$ for any input feature set $x$. The output $y$ will be
+a value in the range $(0,1)$. The output can be interpreted as the probability
+of the given input set belonging to the class 1 (primary class).
+
+Other advanced optimization algorithms such as BFGS, L-BFGS, Quasi-Newton, etc.
+are more efficient that the basic gradient descent and also has the advantage that
+we don't have to manually select the learning rate ($\alpha$). These advanced
+optimization algorithms will automatically select the appropriate value of $\alpha$
+to maximize efficiency.
+
+\paragraph{Other Considerations}\hfill
+
+
+\subparagraph{Feature Scaling}\hfill
+
+Feature scaling is the process of scaling (or normalizing) all the features
+to a limit of $[-1,1]$ or $[0,1]$. This is required because unscaled features
+causes some features to get higher priority implicitly and it reduces
+the accuracy of the learning algorithm. Feature scaling can be done in following
+ways:
+\begin{align}
+  x_j^{(i)} &= \frac{x_j^{(i)} - \min (x_j)}{ \max (x_j) - \min (x_j)}
+  \in [0, 1]
+  \nonumber
+\end{align}
+or
+\begin{align}
+  x_j^{(i)} &= \frac{x_j^{(i)} - \overline{x_j}}{ \max (x_j) - \min (x_j)}
+  \in [-1, 1]
+  \nonumber
+\end{align}
+or
+\begin{align}
+  x_j^{(i)} &= \frac{x_j^{(i)} - \overline{x_j}}{\sigma_{x_j}}
+  \quad (\text{for normal distribution})
+  \nonumber
+\end{align}
+
+
+\subparagraph{Regularization}
+
+Regularization \cite{jason} is the process of scaling down the values of parameter $\theta$
+to reduce the problem of over-fitting. Over-fitting is the condition when
+the learning algorithm satisfies the training set very precisely but doesn't
+satisfy test data (not included in training set). Regularization is done
+by introducing a regularization parameter $\lambda$ term in the overall
+cost function J($\theta$).
+\begin{align}
+  \text{J}(\theta) = \frac{1}{m} \sum_{i=1}^{m}
+  \text{Cost} \left( \text{h}_\theta \left(x^{(i)} \right), y^{(i)} \right)
+  + \frac{\lambda}{2m} \sum_{j=0}^n \theta_j^2
+  \label{eqn:j-with-l}
+\end{align}
+The corresponding first-order derivatives then becomes:
+\begin{align}
+  \frac{\partial \text{J}(\theta)}{\partial \theta_j} &=
+  \begin{cases}
+    \displaystyle
+    \sum_{i=1}^{m} \left( \text{h}_\theta \left(x^{(i)}\right) - y^{(i)} \right) x^{(i)}_j
+    &\text{ for } j = 0\\
+    \displaystyle
+    \sum_{i=1}^{m} \left( \text{h}_\theta \left(x^{(i)}\right) - y^{(i)} \right) x^{(i)}_j
+    + \frac{\lambda}{m} \theta_j
+    &\text{ for } j \in {1,2,\ldots,n}
+  \end{cases}
+  \nonumber
+\end{align}
+\subsubsection{ Naive Bayes}: 
 Naive Bayes is one of the model used for the classification under the``Bayesian Classifier''. In machine learning, Naive Bayes classifier are the family of simple probablistic classifiers based on Baye's theory with the assumption of ``independence'' between the features. If the depedence between the features exists Bayesain Network will be used for the classification. The major advantage of the Naive Bayes is it's simplicity and highly scablility and ability to work on huge dataset too. Despite the oversimplified assumption, Naive Bayes have worked quite well in many complex real world situation.
 They are probabilistic, which means that they calculate the probability of each category for a given sample, and output the category with the highest one. It is comparable to the unigram language model created on each set of classes. It is widely used for text classification which used in various fields like email sorting, language detection etc. \\
 There are various variation of Navie Bayes which are:
@@ -61,7 +312,7 @@ There are various variation of Navie Bayes which are:
 \item Gaussian Navie Bayes: In this model, we assume that the feature follows a normal distribution. Instead of discrete counts, we have continuous features.
 \end{enumerate}
 In the project, multinominal naive bayes is used as the classifier asfor personality prediction the frequence of occurence of each featureis the feature vector is important and distribution of the feature isin discrete form.
-\end{itemize}
+%\end{itemize}
 
 \subsubsection{Multinominal Naive Bayes}
 \paragraph{Problem Formulation}\hfill 
@@ -121,15 +372,13 @@ After the detection of the personality, this information is used as the metric f
 Data Analysis \cite{analysis} is a primary component of data mining and business intelligence and is key to gaining the insight that derives business decisions. Data analysis is a proven way for organizations and enterprises to gain the information they need to make better decisions, server their customers and increase productiviy and revenue. Besides, with the growth of internet, there is so much of digital data and information available and data analysis has become more necessary than ever. 
 Some of the data analysis techniques are:
 \begin{itemize}
-	\item Descriptive
-	\item Predictive
-	\begin{itemize}
-		\item Prescriptive
+	\item Descriptive: It is analysis techniques that uses aggregation and data mining to provide insight into past and answer ``What has happend?''.It involves the calculation of simple measures of composition and distribution of variables. They are often used to describe relationship in data. Such as: total stock in inventory, average moeney spent per customer etc.
+	\item Predictive: It is the process of extracting information from existing data sets in order to determine patterns and predict future outcomes and trends. It encompasses a variety of statistical techniques from predictive modeling, machine learning and data-mining.Such as: predicting what items customers will purchase together, how sales might close at the end of the year etc.
+	\item Prescriptive:It is a data analysis technique that allows user to prescribe a number of different possible actions to and guide them towards a solution. In a nut-shell, these analytics are all about providing advice.
 		\begin{itemize}
-			\item Recommdender System
+			\item Recommdender System: It is one of the prescriptive data analysis technique used to recommend an item to user.
 		\end{itemize}
 	\end{itemize}
-\end{itemize}
 \subsection{Recommender System}
 Recommender systems were originally defined as ``people provide recommendations as inputs, which the system then aggregates and directs toappropriate recipients'', like using experts knowledge as input for the system to enrich it's ability to recommend to people according to the given knowledge. However, now the term has a broader connotation,describing any system that produces individualized recommendations as output or has the effect of guiding the user in a personalized way to interesting or useful objects in a large space of possible options \cite{rdef}.
 
@@ -139,6 +388,8 @@ Recommender system are benefical to both service providers and users.Recommendat
 
 Recommender system tpyically produce a list of recommendation in one of two ways- through collaborative and content filtering. Collaborative filtering approaches build a model from a uer's past behavior(items previously purchased or selected and numerical rating given to those items) as well as similar decisions made by other users. This modelis then used to predict items(or ratings for items) that the user may have an interest in. Content-based filtering approaches utilize a series of discrete characteristics of an item i.e item-profile based on the purchase history of the user i.e with the help of user-profile in order to recommend items. The Hybird recommeder system is the one in which the one or more recommender system is combined for the recommendation. Besides there are several categorization of recommendation system which is enlisted below:
 \begin{enumerate}
+	\item Personalized Recommendation: It involves online suggestion of data in any format that is relevant to each and every user, based on the user's implicit behavior and provided details.
+	\begin{enumerate}
 	\item Knowledge Based Recommendation(Searching)
 	\item Utility Based Recommendation
 	\item Demographic Based Recommendation
@@ -158,6 +409,8 @@ Recommender system tpyically produce a list of recommendation in one of two ways
 			\item Feature Augmentation
 			\item Meta Level
 		\end{enumerate}
+	\end{enumerate}
+	\item Non-Personalized Recommendation: It is a recommendation system that recommends items to consumers based on what other consumer have said about the product in an average i.e the recommendations are independen of the customer, so all customers gets the same recommendation.
 \end{enumerate}
 \subsubsection{Knowledge based Recommendation(Searching)}
 Knowledge based recommendation system \cite{recommend} is based on the explicit knowledge about item classification, user interest and recommendation standard(which item should be recommend in which feature). It is an alternative approach to the collaborative filtering.
@@ -181,12 +434,24 @@ Knowledge based recommendation system \cite{recommend} is based on the explicit 
 \end{itemize}
 
 \subsubsection{Utility based Recommednation}
-\paragraph{Working Mechanism}\hfill
-\begin{enumerate}
-	\item Hell
-\end{enumerate}
+Utility based recommender system make recommendation based on the calculation of the utility of each item for the user. Utility based recommender techniques uses multi-attribute utility function based on item rates that user offer to describe user preferences and apply the utiltiy function to calculate item utility for each user.
+%\paragraph{Working Mechanism}\hfill
+%\begin{enumerate}
+%	\item Hell
+%\end{enumerate}
 \paragraph{Pros}\hfill
+
+\begin{itemize}
+	\item Sensitive to changes of preference.
+	\item Can include non-product features.
+	\item No ramp-up required.
+\end{itemize}
 \paragraph{Cons}\hfill
+
+\begin{itemize}
+	\item Suggestion ability static.
+	\item User must input utility function.
+\end{itemize}
 
 \subsubsection{Demographic based Recommendation}
 Demographic recommendation technique \cite{demographic} uses information about the user only. The demographic types of users include gender, age, knowledge of language, disablities, ethnicity, mobility, employement status, home  ownership and evenlocation.The system recommends items according to demographic similarities of the users.
@@ -412,3 +677,19 @@ And,
 \end{split}
 \end{equation}
 Thus, in this way matrix factorization can be implemented as the recoommder system.
+\subsection{Model Evaluation for Recommender System}
+Evaluation measures for recommender systems are separated into three categories \cite{eval}:
+\begin{itemize}
+	\item Predictive Accuracy Measures: These measures evaluate how close the recommender system came t predicting acutal rating/utility values.
+	\item Classification Accuracy Measures: These measures evaluate the frequency with which a recommender system makes correct/incorrect decisions regarding items.
+	\item Rank Accuracy Measures: These measures evaluate the correctness of the system ordering of items performed by the recommendation system.
+
+	Since the project is about the impact of personality on user to user based collaborative filtering we are concerned with only predctive accuracy measures. There are many variant of predictive accuracy measures such as: Mean Absolute Error(MAE), Mean Squared Error(MSE), Root Mean Squared Error(RMSE),Normalized Mean Absolute Error(NMAE).
+
+Among them, root mean squared error is the most popular one and has been used in the project as:
+
+Let $u_{xi}$ be the actual rating of the user $x$ on item $i$ and $\widehat{u_{xi}}$ be the predicted rating of the user $x$ on item $i$, then, the root squared error can be computed as:
+\begin{equation}
+	RMSE = \sqrt{\frac{(\sum_{n=1}^N(u_{xi}-\widehat{u_{xi})^2}}{N}}
+\end{equation}
+\end{itemize}
