@@ -1,7 +1,0 @@
-Conclusion
-
-In this project, we have developed a recommendation system that takes facebook user's profile imformation (status, posts and music likes) as input and 
-recommend similar music to user on the basis of thier taste in music. the music recommendation is done analysing the facebook activity of the user on music data.
-We first used dataset from myPersonality.org to train and model the system. Modeling is done by using natural language processing techniques. Classification od user's personalityimplemented
-is done according to big five traits of personality. Later on, we used surveyed data to test our recommendation model and to calculate various performance metrics of the 
-system
