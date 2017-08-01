@@ -30,7 +30,7 @@ They are:
 \begin{enumerate}
 	\item Naive Bayes Classifier
 	\item Logistic Regression
-	\item KNN 
+	\item KNN
 \end{enumerate}
 \item Recommender System: The system comprises of the eight models for the recommendation of the music to the user.\\
 They are:
@@ -59,14 +59,13 @@ The use case diagram of the system depicting the actors and their interaction to
 
 From the above diagram, it is clear that the system consists of four actors.They are:
 \begin{itemize}
-\item User: They are the ones who will be using the system directly. The users will be able to do the actions like login, viewing recommendation and listening to a music. 
+\item User: They are the ones who will be using the system directly. The users will be able to do the actions like login, viewing recommendation and listening to a music.
 \item Admin: Admin is directly responsible for training a classifier subsystem and recommender subsystem, creation of model for the storage engine and verification of all of these subsystem.
 \item Classifier: It is responsible for the classification of the personality of the user and update of the database.
 \item Recommender: It is responsible for the recommendation of the music to the user and also update of the database.
 %\item Storage Handler: It is responsible for the creation of the data base model and storage of system data.
 \end{itemize}
 
-\newpage
 \subsection{ER Diagram}
 The  ER diagram depicting the entities used in the system and relationship between them is given below:
 \begin{figure}[!ht]
@@ -78,11 +77,11 @@ The  ER diagram depicting the entities used in the system and relationship betwe
 The entities in the system are:
 \begin{enumerate}
 	\item Session: It consists of attributes: session id and user id and has one to one relationship with user.
-	\item Music: It consists of attributes: artist and song title and also has  many to many relationship with the user-music and recommendation. 
-	\item User: It consists of attributes user id, name and personality traits attributes and has  many to  many relationship with user-music and one to one with the session with session and recommendation. 
+	\item Music: It consists of attributes: artist and song title and also has  many to many relationship with the user-music and recommendation.
+	\item User: It consists of attributes user id, name and personality traits attributes and has  many to  many relationship with user-music and one to one with the session with session and recommendation.
 	\item Recommendation: It consists of attributes user and music and has one to one relationship with user while many to many relationship with music.
-	
-	\item User-Music: It consists of attributes user, music and rating and many to many relationship with user and music. 
+
+	\item User-Music: It consists of attributes user, music and rating and many to many relationship with user and music.
 \end{enumerate}
 \newpage
 \subsection{Activity Diagram}
@@ -96,7 +95,7 @@ The diagram above shows the activity digram of the system. It depicts how the us
 
 \newpage
 \subsection{Data Flow Diagram}
-The figure given below is the data flow diagram of the project showing the flow of data within the system. 
+The figure given below is the data flow diagram of the project showing the flow of data within the system.
 
 \begin{figure}[!ht]
 \centering
@@ -106,9 +105,9 @@ The figure given below is the data flow diagram of the project showing the flow 
 \end{figure}
 
 It is the level-1 dfd, with the two entities User and Admin. User is responsible for log in, view personality and view recommended music, all of which takes data from the user and recommendation store, to provide a data to the user. Besides admin is responsible for creating and altering models(classifier,recommender,database) all of which are reflected within the user and recommendation store.
-\newpage
+
 \subsection{Front End of the System(User Interface)}
-User Interface is one of the major part of the system. It is where a user will login through their Facebook id in order to experience the personalized based music listening. User is able to able to view his personality via the website and also view the detailed description about the personality traits. Personality classification and music recommendation are all performed in the backend of the system. 
+User Interface is one of the major part of the system. It is where a user will login through their Facebook id in order to experience the personalized based music listening. User is able to able to view his personality via the website and also view the detailed description about the personality traits. Personality classification and music recommendation are all performed in the backend of the system.
 
 % Following are the snapshots of our system UI:
 % \begin{figure}[!ht]
