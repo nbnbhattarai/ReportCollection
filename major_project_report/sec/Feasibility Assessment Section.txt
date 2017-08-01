@@ -1,0 +1,18 @@
+Feasibility Assessment
+Feasibiity Asssessment is done to analyse the viability of an idea. In case of software development, it performs the practicality of the project or system. The result from feasibility assessment determines whether the project should go ahead, be redesigned, or dropped. There are 
+five areas of feasibility - Technical, Economic, Legal, Operational ans Scheduling.
+
+Technical Feasibility
+Technical Feasibility Assessment examines whether the proposed system can actually be designed to solve the desired problems and requirements using available technologies in the given problem domain. The system is said to be feasible technically if it can be deployable, operable and manageable under current technological context of our country
+
+Economic Feasibility
+Economic Feasibility checks whether the cost required for complete system development is feasible using athe available resources in hand. It should be noted that the cost of resources and overall cost of deployment of system should be kept minimum while operational and maintenance cost for the system should be within the capacity of organization.
+
+Operational Feasibility
+The operational feasibility analysis gives the description about how the system operates and what resources do the system requires for performing its designated task. Being closely related to data analysis and integration, the system requires to be easily operable for different uses and operations like new data entry, concurrent use of system should be fluent consuming minimum cost and resources.
+
+Legal Feasibility
+Legal Feasibility assessment checks the system for any conflicts with legal requirement, regulations that are to be followed as per the standard maintained by the governing body. As such, the system that is being developed must comply with all the legal boundaries such as copyright violation, authorize use of licenses and other. This prevent any future conflicts for the system and also provide legal basis for the system in future if any other tries to use part of or full system without necessary permission and documents
+
+Scheduling Feasibility
+Any project is comsidered fail if it is not completed on time. so, Scheduling Feasibility estimates the time require fro the system to fully develop and whether that time feasible or not according to current trend in market. If the project takes longer time to complete, it may be outdated or some other may launch the similar system before our system is complete. So, it is required to fix the deadline for any project and the system should be out and operative before specified deadline.
