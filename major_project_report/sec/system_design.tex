@@ -52,17 +52,17 @@ They are:
 The use case diagram of the system depicting the actors and their interaction to the system is given in the figure below:
 \begin{figure}[!ht]
 \centering
-\includegraphics[width = 16 cm]{fig/Use.png}
+\includegraphics[width = 16 cm]{fig/usecase.png}
 \caption{Use Case Diagram of the System}
 \label{fig:usecase}
 \end{figure}
 
-From the above diagram, it is clear that the system consists of two actors.They are:
+From the above diagram, it is clear that the system consists of four actors.They are:
 \begin{itemize}
 \item User: They are the ones who will be using the system directly. The users will be able to do the actions like login, viewing recommendation and listening to a music. 
 \item Admin: Admin is directly responsible for training a classifier subsystem and recommender subsystem, creation of model for the storage engine and verification of all of these subsystem.
-%\item Classifier: It is responsible for the classification of the personality of the user.
-%\item Recommder System: It is responsible for the recommendation of the music to the user.
+\item Classifier: It is responsible for the classification of the personality of the user and update of the database.
+\item Recommder: It is responsible for the recommendation of the music to the user and also update of the database.
 %\item Storage Handler: It is responsible for the creation of the data base model and storage of system data.
 \end{itemize}
 
@@ -80,16 +80,16 @@ From the above diagram, it is clear that the system consists of two actors.They 
 The  ER diagram depicting the entities used in the system and relationship between them is given below:
 \begin{figure}[!ht]
 \centering
-\includegraphics[width = 16 cm]{fig/erdiagram.png}
+\includegraphics[width = 15 cm]{fig/er.png}
 \caption{ER diagram of the System}
 \label{fig:er}
 \end{figure}
 The entities in the system are:
 \begin{enumerate}
 	\item Session: It consists of attributes: session id and user id and has one to one relationship with user.
-	\item Music: It consists of attributes: artist and songtitle and also has zero or many to zero or many relationship with the user-music. 
-	\item User: It conists of attributes userid, name and personality traits attributes and has zero or many to zero or many relationship with user-music and recommendation and one to one with the session. 
-	\item Recommendation: It consists of attributes user and music and has oone to one realationship with user while many to many realationship with music.
+	\item Music: It consists of attributes: artist and songtitle and also has  many to many relationship with the user-music and recommendation. 
+	\item User: It conists of attributes userid, name and personality traits attributes and has  many to  many relationship with user-music and one to one with the session with session and recommendation. 
+	\item Recommendation: It consists of attributes user and music and has one to one realationship with user while many to many relationship with music.
 	
 	\item User-Music: It consits of attributes user, music and rating and many to many relationship with user and music. 
 \end{enumerate}
@@ -106,7 +106,7 @@ The entities in the system are:
 \subsection{Data Flow Diagram}
 \begin{figure}[!ht]
 \centering
-\includegraphics[width = 16 cm]{fig/System.png}
+\includegraphics[width = 16 cm]{fig/dfd.png}
 \caption{Data Flow Diagram of the System}
 \label{fig:dfd}
 \end{figure}
