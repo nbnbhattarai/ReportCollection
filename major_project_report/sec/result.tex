@@ -175,14 +175,14 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
 
 
 \subsection{Evaluation of Recommendation System}
-RMSE of global baseline algorithm: \\
-RMSE of user to user collaborative filtering with user rating matrix: \\
-RMSE of user to user collaborative filtering with user personality matrix: \\
-RMSE of user to user collaborative filtering with user rating matrix with combination of global baseline: \\
-RMSE of user to user collaborative filtering with user personality matrix with combination of global baseline: \\
-RMSE of user to user collaborative filtering with weighted average of user personality matrix and user rating matrix:\\
-RMSE of user to user collaborative filtering with weighted average of user personality matrix and user rating matrix with combination of global baseline: \\
-RMSE of matrix factorization: \\
+RMSE of global baseline algorithm: 2.95\\
+RMSE of user to user collaborative filtering with user rating matrix: 4.10\\
+RMSE of user to user collaborative filtering with user personality matrix: 3.55\\
+RMSE of user to user collaborative filtering with user rating matrix with combination of global baseline:3.91 \\
+RMSE of user to user collaborative filtering with user personality matrix with combination of global baseline: 4.73\\
+RMSE of user to user collaborative filtering with weighted average of user personality matrix and user rating matrix: 3.5\\
+RMSE of user to user collaborative filtering with weighted average of user personality matrix and user rating matrix with combination of global baseline: 3.58\\
+RMSE of matrix factorization: 0.88\\
 
 
 
@@ -202,3 +202,5 @@ The following figure shows the RMSE of matrix factorization when k is varied wit
 \caption{RMSE of matrix factorization vs number of latent factors}
 \label{fig:rmse_k}
 \end{figure}
+
+Comparison of the above models, we can conclude that the result of user to user collaborative filtering with the personality has slightly better result than the user to user collaborative filtering with the user rating matrix but the matrix factorization outperforms them all. Besides, the result of weighted average of user similarity matrix with rating and personality also performs better than only a rating matrix but has a comparable result with the user to user collaborative filtering with personality to compute the similarity.

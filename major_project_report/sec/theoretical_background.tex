@@ -543,16 +543,16 @@ The different approaches used for the modeling of hybrid recommendation system a
 \subsection{Issues in recommendation system}
 The issues \cite{recommend} that can result in the recommendation system can be described as follows:
 \begin{enumerate}
-\item Data Collection: The data used by recommedation engines can be categorized into explicit and implict data. Explicit is all data the user themselves feed into the system. The collection of explicit data must not be intrusive or time consuming. Implicit data source in e-commerce is the transaction data. Implicit data needs to be analyzed before it can be used to describe user features or user-item ratings.
-\item Cold Start/Ramp-Up: The cold start problem occurs when too little/no rating data is available in the inital state. The recommendation system then lack data to produce appropriate recommendations. They mostly occur in the learning models. Two cold start problems are new user problem and new item problem.
-\item Stability Vs Plasiticity: The converse of the cold start problem is the stability vs plasticity. When consumers have rated so many items their preferences in the established user profiles are difficultto change. 
-\item Sparsity: In most use cases for recommendation systems, due to the catalogue sizes of e-business vendors, the count of rating already obtained is very small related to the count of ratings that need to be predicted. But collaborative filtering techiques focuses on an overlap in ratings and have diffulties when the space of rating is sparse(few user have rated the similar items). Sparsity in the user-item rating matrix degrades the quality of the recommendations.
-\item Performance and Scaliblity: Performance and scalability are important issues for recommendation systems as e-commerce websites must be able to determine recommendations in real-time and often deal with huge data sets of millions of users and items. The big growth rates of e-business are making the sets even larger in the user dimension.
-\item Uer Input Consistency: Recommendation techniques that work with user-to-user correlations like collaborative filtering or demograhic, depends on more correlation coefficients between the users in a data set. Users can be categorized into three classes based on their corrleation coefficients with other users. The majority of users fall into the class of ``white sheep'', where there is a high rating corrleation with other users. Resulted engines can easily find recommendations for them. The opposite type is the ``black sheep'' where there are only few or noe correlating users. This makes it quite difficult to find recommendations for them. The bigger problem is the ``gray sheep'' problem where users have different opinions or an unusual taste that results in low correlation coefficients with many users. They fall on a border opinions or an unusal taste that result in low correlation coefficients with many users. They fall on a border between user tastes. Recommendations for them are very diffcult to find and they also cause different recommendations for their correlated users.
-\item Privacy: Privacy is an important issue in recommendation systems. To provide personalized recommendations, recommendation systems must know something regarding to users. In fact, the more the system know, the more precise the recommendation can get. Users are concerned about what information is gathered, how it is used, and if it is stored. These privacy affect both the collection of explicit and implicit data. Regarding explict data, users are not intrested to disclose information about themselves and their interests. If questionnaries get too personal, user may give false information in order to protect their privacy.
+\item Data Collection: The data used by recommendation engines can be categorized into explicit and implicit data. Explicit is all data the user themselves feed into the system. The collection of explicit data must not be intrusive or time consuming. Implicit data source in e-commerce is the transaction data. Implicit data needs to be analyzed before it can be used to describe user features or user-item ratings.
+\item Cold Start/Ramp-Up: The cold start problem occurs when too little/no rating data is available in the initial state. The recommendation system then lack data to produce appropriate recommendations. They mostly occur in the learning models. Two cold start problems are new user problem and new item problem.
+\item Stability Vs Plasticity: The converse of the cold start problem is the stability vs plasticity. When consumers have rated so many items their preferences in the established user profiles are difficult to change. 
+\item Sparsity: In most use cases for recommendation systems, due to the catalog sizes of e-business vendors, the count of rating already obtained is very small related to the count of ratings that need to be predicted. But collaborative filtering techiques focuses on an overlap in ratings and have difficulties when the space of rating is sparse(few user have rated the similar items). Sparsity in the user-item rating matrix degrades the quality of the recommendations.
+\item Performance and Scalability: Performance and scalability are important issues for recommendation systems as e-commerce websites must be able to determine recommendations in real-time and often deal with huge data sets of millions of users and items. The big growth rates of e-business are making the sets even larger in the user dimension.
+\item User Input Consistency: Recommendation techniques that work with user-to-user correlations like collaborative filtering or demographic, depends on more correlation coefficients between the users in a data set. Users can be categorized into three classes based on their correlation coefficients with other users. The majority of users fall into the class of ``white sheep'', where there is a high rating correlation with other users. Resulted engines can easily find recommendations for them. The opposite type is the ``black sheep'' where there are only few or no correlating users. This makes it quite difficult to find recommendations for them. The bigger problem is the ``gray sheep'' problem where users have different opinions or an unusual taste that results in low correlation coefficients with many users. They fall on a border opinions or an unusual taste that result in low correlation coefficients with many users. They fall on a border between user tastes. Recommendations for them are very difficult to find and they also cause different recommendations for their correlated users.
+\item Privacy: Privacy is an important issue in recommendation systems. To provide personalized recommendations, recommendation systems must know something regarding to users. In fact, the more the system know, the more precise the recommendation can get. Users are concerned about what information is gathered, how it is used, and if it is stored. These privacy affect both the collection of explicit and implicit data. Regarding explicit data, users are not interested to disclose information about themselves and their interests. If questionnaires get too personal, user may give false information in order to protect their privacy.
 \end{enumerate}
-\subsection{Recommendation Model for exprimentation}
-We are trying to expriment on how personality impacts on the collaborative filtering model and compare it with other some popular models(global baseline, latent factor).
+\subsection{Recommendation Model for experimentation}
+We are trying to experiment on how personality impacts on the collaborative filtering model and compare it with other some popular models(global baseline, latent factor).
 Hence the recommendation model used in the project are:
 \begin{itemize}
 \item Global Baseline Algorithm
@@ -562,18 +562,18 @@ Hence the recommendation model used in the project are:
 \end{itemize}
 Therefore all together, 6 different recommendation model is studied in the project.
 \subsubsection{Global Baseline Algorithm}
-Global Baseline algorithm provides a mechanism to compute the unknownrating with baseline (i.e ``global effects'') estimates of corresponding users and items.
+Global Baseline algorithm provides a mechanism to compute the unknown rating with baseline (i.e ``global effects'') estimates of corresponding users and items.
 Mathematically,
-Suppose $\mu$ be the system wide average rating, $b_x$ be the overall user rating deviation from system average and $b_i$ be the deviation in rating for an item $i$ then global base line algorithm rates an tiem $i$ for an user $x$ as:
+Suppose $\mu$ be the system wide average rating, $b_x$ be the overall user rating deviation from system average and $b_i$ be the deviation in rating for an item $i$ then global base line algorithm rates an item $i$ for an user $x$ as:
 \begin{equation}\label{eq:baseline}
 	Global Baseline Estimate[R_{x,i}] = \mu + b_x + b_i
 \end{equation}
 \subsubsection{User to User collaborative filtering}
 \begin{itemize}
-	\item User to Rating matrix computation: User-rating matirx is computed with rating data of different users available from database or dataset.
-	\item Normalization of the rating: It is done in order to make the avg rating of the system zeros so that the unknown values can be padded with zeroes.
+	\item User to Rating matrix computation: User-rating matrix is computed with rating data of different users available from database or dataset.
+	\item Normalization of the rating: It is done in order to make the avg rating of the system zeros so that the unknown values can be padded with zeros.
 Mathematically,
-Suppose $\mu_x$ be the average rating of the user x and $R_{x,i}$ reprents a rating of user $x$ on item $i$ then normalized rating for an user $x$ on item $i$ can be computed as:
+Suppose $\mu_x$ be the average rating of the user x and $R_{x,i}$ represents a rating of user $x$ on item $i$ then normalized rating for an user $x$ on item $i$ can be computed as:
 \begin{equation}\label{eq:normal}
 	Normalized Rating[NR_{x,i}] = R_{x,i} - \mu
 \end{equation}
@@ -602,22 +602,22 @@ $baseline_{y,i}$ is the baseline estimate on item $i$ by user $y$ \\
 $s_{x,y}$ is the similarity between user $x$ and $y$ \\ 
 $N$ is the total neighbors used for the recommendation
 \subsubsection{Matrix Factorization}
-Matrix factorization \cite{latent} involves in a factorization of a matrix to find out tow or more matrices such that when fators are multiplied together, original matrix in obtained. In recommender system, the matrix facotrization is employed to predict the missing ratings such that the values would be consistent with the existing rating in the matrix. The intuition behind using matrix factorization, is that it is assumped there should be some latent features that determine how a user rates an item. For example two users would give high rating to a certain mumusic if they both like the singer of the music or if the music is of same genre. Hence if we can discover these latent features, we should be able to predict a rating with respect to a certain user and a certain item, because the features associated with the user should match with the features associated with the item.
+Matrix factorization \cite{latent} involves in a factorization of a matrix to find out tow or more matrices such that when fators are multiplied together, original matrix in obtained. In recommender system, the matrix factorization is employed to predict the missing ratings such that the values would be consistent with the existing rating in the matrix. The intuition behind using matrix factorization, is that it is assumed there should be some latent features that determine how a user rates an item. For example two users would give high rating to a certain music if they both like the singer of the music or if the music is of same genre. Hence if we can discover these latent features, we should be able to predict a rating with respect to a certain user and a certain item, because the features associated with the user should match with the features associated with the item.
 
-In trying to discover the different features, we also make the assumptions that the number of features would be smaller than the number of users and the number of items. Suppose we have a set $U$ of users and set $D$ of items. Let $R$ of size $|U| * |D| $ be the matrix that contains all the ratings that the users have assigned ot the items. Wealso assume tht we would like to discover $K$ latent features. So ourtask here is to find out two matrices $P$ of size $|U| * K$ and $Q$ of size ${|D| * K}$ such that their products approximates R.
+In trying to discover the different features, we also make the assumptions that the number of features would be smaller than the number of users and the number of items. Suppose we have a set $U$ of users and set $D$ of items. Let $R$ of size $|U| * |D| $ be the matrix that contains all the ratings that the users have assigned to the items. We also assume that we would like to discover $K$ latent features. So our task here is to find out two matrices $P$ of size $|U| * K$ and $Q$ of size ${|D| * K}$ such that their products approximates R.
 \begin{equation}
 \begin{split}
 	R \approx P*Q^T = \widehat{R}
 \end{split}
 \end{equation}
-In this ways each row of $P$ would represent the strength of the associations between a user and the features. Similarly, each row of $Q$ would represent the strength of the associates between an item and the features. To get the prediction of a raing of an item $d_j$ by $u_i$ we can calculate the dot product of the two vectors corresponding to the $u_i$ and $d_j$:
+In this ways each row of $P$ would represent the strength of the associations between a user and the features. Similarly, each row of $Q$ would represent the strength of the associates between an item and the features. To get the prediction of a rating of an item $d_j$ by $u_i$ we can calculate the dot product of the two vectors corresponding to the $u_i$ and $d_j$:
 \begin{equation}
 \begin{split}
 	\widehat{r_{ij}} & = {p_i}^Tq_j \\
 	 & = {\sum_{k=1}^K} p_{ik}q_{jk}
 \end{split}
 \end{equation}
-Now, in order to find a way to obtain $P$ and $Q$. One way to approach this problem is first initialize the two matrices with some values, calculate how 'different' their product is to $M$, and then try to minimize this difference iteratively. Such a method is called gradientdescent, aiming at finding a local minimum of the difference. The diffrence here, usually called the error between the estimated rating and the real rating, can be calculated by the following equation of each user-item pair:
+Now, in order to find a way to obtain $P$ and $Q$. One way to approach this problem is first initialize the two matrices with some values, calculate how 'different' their product is to $M$, and then try to minimize this difference iteratively. Such a method is called gradient descent, aiming at finding a local minimum of the difference. The difference here, usually called the error between the estimated rating and the real rating, can be calculated by the following equation of each user-item pair:
 \begin{equation}
 \begin{split}
 	{e_{ij}}^2 & = (r_{ij} - \widehat{r_{ij}})^2 \\ 
@@ -653,15 +653,15 @@ And,
 	& = q_{ik}  + 2\alpha e_{ij} p_{ik}
 \end{split}
 \end{equation}
-Here, $\alpha$ is a constant called learning rate whose value determines the rate of approaching the minimum. Usually, $\alpha$ is chosen to be between 0.001 to 0.1, this is because if we make too large step towrds the minimum, we may run into the risk of missing the minimum and end up oscillating around minimum.
+Here, $\alpha$ is a constant called learning rate whose value determines the rate of approaching the minimum. Usually, $\alpha$ is chosen to be between 0.001 to 0.1, this is because if we make too large step towards the minimum, we may run into the risk of missing the minimum and end up oscillating around minimum.
 Using the above rule we can then iteratively perform the operation until the error converges to it's minimum or run the process for the finite number of iteration.
 \paragraph{Regularization}\hfill
 
-Here, in order to avoid overfitting, regularization is introduced by adding the additional $\beta$ and modifying the squared error as:
+Here, in order to avoid over-fitting, regularization is introduced by adding the additional $\beta$ and modifying the squared error as:
 \begin{equation}
 	{e_{ij}}^2  = (r_{ij} - \sum_{k=1}^K p_{ik}q{kj})^2 + \frac{\beta}{2}\sum_{k=1}^2(|P|^2 + |Q|^2)
 \end{equation}
-Here, the new paramter $\beta$ is used to control the magnitudes of the user=feature and item-feature vector such that P and Q would give a good approximation of $R$ without having to contain large numbers. In pracitse, $\beta$ is set in range of 0.02. Now the new update rules for this squared error can be obtained similary as above and the new update rules becomes:
+Here, the new parameter $\beta$ is used to control the magnitudes of the user=feature and item-feature vector such that P and Q would give a good approximation of $R$ without having to contain large numbers. In practice, $\beta$ is set in range of 0.02. Now the new update rules for this squared error can be obtained similarly as above and the new update rules becomes:
 
 \begin{equation}
 \begin{split}
@@ -676,15 +676,15 @@ And,
 	& = q_{ik}  + \alpha (2e_{ij} p_{ik} - \beta q_{kj})
 \end{split}
 \end{equation}
-Thus, in this way matrix factorization can be implemented as the recoommder system.
+Thus, in this way matrix factorization can be implemented as the recommender system.
 \subsection{Model Evaluation for Recommender System}
 Evaluation measures for recommender systems are separated into three categories \cite{eval}:
 \begin{itemize}
-	\item Predictive Accuracy Measures: These measures evaluate how close the recommender system came t predicting acutal rating/utility values.
+	\item Predictive Accuracy Measures: These measures evaluate how close the recommender system came t predicting actual rating/utility values.
 	\item Classification Accuracy Measures: These measures evaluate the frequency with which a recommender system makes correct/incorrect decisions regarding items.
 	\item Rank Accuracy Measures: These measures evaluate the correctness of the system ordering of items performed by the recommendation system.
 
-	Since the project is about the impact of personality on user to user based collaborative filtering we are concerned with only predctive accuracy measures. There are many variant of predictive accuracy measures such as: Mean Absolute Error(MAE), Mean Squared Error(MSE), Root Mean Squared Error(RMSE),Normalized Mean Absolute Error(NMAE).
+	Since the project is about the impact of personality on user to user based collaborative filtering we are concerned with only predictive accuracy measures. There are many variant of predictive accuracy measures such as: Mean Absolute Error(MAE), Mean Squared Error(MSE), Root Mean Squared Error(RMSE),Normalized Mean Absolute Error(NMAE).
 
 Among them, root mean squared error is the most popular one and has been used in the project as:
 
