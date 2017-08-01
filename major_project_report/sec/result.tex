@@ -176,15 +176,68 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
 
 
 \subsection{Evaluation of Recommendation System}
-RMSE of global baseline algorithm: 2.95\\
-RMSE of user to user collaborative filtering with user rating matrix: 4.10\\
-RMSE of user to user collaborative filtering with user personality matrix: 3.55\\
-RMSE of user to user collaborative filtering with user rating matrix with combination of global baseline:4.71 \\
-RMSE of user to user collaborative filtering with user personality matrix with combination of global baseline: 3.58\\
-RMSE of user to user collaborative filtering with weighted average of user personality matrix and user rating matrix: 3.55\\
-RMSE of user to user collaborative filtering with weighted average of user personality matrix and user rating matrix with combination of global baseline: 3.58\\
-RMSE of matrix factorization: 0.88\\
+%\begin{table}
 
+\begin{center}
+\begin{tabular}{| l | c |}
+\hline
+{\bf Recommendation Model} & {\bf RMSE}\\
+\hline
+Global Baseline Algorithm & 2.86\\
+\hline
+User to User Collaborative Filtering with user & \\ rating matrix & 3.89\\
+\hline
+User to User Collaborative Filtering with user & \\ personality matrix & 3.20\\
+\hline
+User to User Collaborative Filtering with user & \\ rating matrix with combination of global baseline & 4.72\\
+\hline
+User to User Collaborative Filtering with user & \\ personality matrix with combination of global baseline & 3.10\\
+\hline
+User to User Collaborative Filtering with weighted & \\ average of user personality matrix and user rating matrix & 3.2\\
+\hline
+User to User Collaborative Filtering with weighted & \\ average of user personality matrix and user rating matrix & \\ with combination of Global Baseline Algorithm & 3.04\\
+\hline
+Matrix factorization & 0.88\\
+\hline
+\end{tabular}
+\end{center}
+
+Effects of change in number of nearest neighborhood in the different collaborative filtering models.
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=1\textwidth]{fig/rmse_global_baseline.png}
+    \caption{}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=1\textwidth]{fig/rmse_global_baseline.png}
+    \caption{}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=1\textwidth]{fig/rmse_global_baseline.png}
+    \caption{}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=1\textwidth]{fig/rmse_global_baseline.png}
+    \caption{}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=1\textwidth]{fig/rmse_global_baseline.png}
+    \caption{}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[width=1\textwidth]{fig/rmse_global_baseline.png}
+    \caption{}
+\end{figure}
 
 
 \subsubsection{Latent Factor}

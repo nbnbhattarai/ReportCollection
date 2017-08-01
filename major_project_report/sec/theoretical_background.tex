@@ -4,7 +4,7 @@
 The project tries to study the impact of the personality on the collaborative recommendation engine. Thus, initially personality of the user has to be predicted which can be done via the user's study on social media i.e Facebook where a status update might be one of the good metric to predict the personality using \textbf{"document classification"} technique and the traits of the person are used as the similarity metric for similar user computation on \textbf{"collaborative filtering"}.
 
 \subsection{Document Classification}
-Document Classification is an example of Machine Learning(ML) in the form ofNatural Language Processing(NLP). By classifying text, we are aiming to assign one or more classes or categories to a document, making it easier to manage or sort. 
+Document Classification is an example of Machine Learning(ML) in the form ofNatural Language Processing(NLP). By classifying text, we are aiming to assign one or more classes or categories to a document, making it easier to manage or sort.
 Broadly speaking, there are two classes of ML techniques:
 \begin{enumerate}
 \item Unsupervised: In unsupervised method, model is responsible for clustering of a similar document.
@@ -36,7 +36,7 @@ In lexical analysis, tokenization is the process of breaking a stream of text up
 \item Stemming:
 In linguistic morphology and information retrieval, stemming is the process for reducing inflected(or sometimes derived) words to their stem, base or root form generally a written word form. The stem need not be identical to the morphological root of the word. It is usually sufficient that related words map to the same stem, even if this stem is not itself a valid root. It is generally a implemented as the rule based system for stemming for words \cite{porter}.
 \item PoS tagging:
-In corpus linguistics, a part of speech tagging, also called grammatical tagging or word-category disambiguation, is the process of marking up a word in a text(corpus) as corresponding to a particular part of speech, based on it's definition as well as context i.e relationship with adjacent and related words in a phrase, sentence, or paragraph \cite{pos}. This aids in removal of unwanted part of speech in the sentences and helps to build the better model. The parts of speech ignored by our model is: noun.
+In corpus linguistics, a part of speech tagging, also called grammatical tagging or word-category disambiguation, is the process of marking up a word in a text(corpus) as corresponding to a particular part of speech, based on it's definition as well as context i.e relationship with adjacent and related words in a phrase, sentence, or paragraph \cite{pos}. This aids in removal of unwanted part of speech in the sentences and helps to build the better model. The parts of speech used in our model are verb, adverb and adjective.
 \end{enumerate}
 
 \subsubsection{Feature Extraction}
@@ -50,15 +50,15 @@ In corpus linguistics, a part of speech tagging, also called grammatical tagging
 % i.e
 % \begin{equation}
 % \begin{split}
-% 	TF = \frac{Number of times term t appears in a document}{Total number of terms in the document} \\ 
-% 	IDF = \log_e\frac{Total number of documents}{1+Number of documents with term t in it} \\ 
+% 	TF = \frac{Number of times term t appears in a document}{Total number of terms in the document} \\
+% 	IDF = \log_e\frac{Total number of documents}{1+Number of documents with term t in it} \\
 % \end{split}
 % \end{equation}
 % Now tf-idf can be obtained as:
 % \begin{equation}
 % 	TF-IDF = tf * idf
 % \end{equation}
-\item Feature Vector Creation: 
+\item Feature Vector Creation:
  Feature Vector Creation is the process of conversion of bag of words model of into the vector form where by each words are represented with their frequencies. For feature vector creation initially a vocabulary is built using all of the corpus available in dataset which helps to create a vector space model for words and feature vector are derived from the each corpus accordingly \cite{vector}.
 \end{enumerate}
 
@@ -78,7 +78,7 @@ It is a classification algorithm used for the classification of personality in t
 
 % Suppose $r_a = [r_a1,r_a2,\cdots,r_an]$ be the feature vector of the document a and  $r_b = [r_b1,r_b2,\cdots,r_bn]$ be the feature vector of the document b, then cosine similarity between document a and b can be obtained as:
 % \begin{equation}
-% 	similarity_{a,b} = \frac{r_a1*r_b1 + r_a2*r_b2 +\cdots+ r_an*r_bn}{\sqrt{{r_a1}^2+{r_a2}^2+\cdots+{r_an}^2} * \sqrt{{r_b1}^2+{r_b2}^2+\cdots+{r_bn}^2} }  
+% 	similarity_{a,b} = \frac{r_a1*r_b1 + r_a2*r_b2 +\cdots+ r_an*r_bn}{\sqrt{{r_a1}^2+{r_a2}^2+\cdots+{r_an}^2} * \sqrt{{r_b1}^2+{r_b2}^2+\cdots+{r_bn}^2} }
 % \end{equation}
 % which is used as the metric to compute the $k$ similar document.
 % \end{enumerate}
@@ -151,14 +151,14 @@ Let,
 The training set for this machine learning algorithm is the set of $m$ training
 samples (examples).
 \begin{align}
-  \text{training set} = 
+  \text{training set} =
   \left\{ (x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \cdots , (x^{(m)}, y^{(m)}) \right\}
   \label{eqn:training-set}
 \end{align}
 
 The weight parameters for the $(n+1)$ features are given by:
 \begin{align}
-  \theta = 
+  \theta =
   \begin{bmatrix}
     \theta_0 \\ \theta_1 \\ \theta_2 \\ \vdots \\ \theta_n
   \end{bmatrix}
@@ -168,7 +168,7 @@ The weight parameters for the $(n+1)$ features are given by:
 Then the hypothesis function used to predict the output $y$ for
 input feature set $x$ with parameter $\theta$ is given by:
 \begin{align}
-  \text{h}_{\theta}(x) = 
+  \text{h}_{\theta}(x) =
   \text{sigmoid}\left( \sum_{i = 0}^{n} \theta_{i} x_{i}\right) =
   \text{sigmoid}\left( \theta^{T}x \right) =
   \frac{1}{1 + e^{-\theta^{T}x}}
@@ -274,7 +274,8 @@ or
 \end{align}
 
 
-\subparagraph{Regularization}
+\subparagraph{Regularization}\hfill
+
 
 Regularization \cite{jason} is the process of scaling down the values of parameter $\theta$
 to reduce the problem of over-fitting. Over-fitting is the condition when
@@ -302,7 +303,7 @@ The corresponding first-order derivatives then becomes:
   \end{cases}
   \nonumber
 \end{align}
-\subsubsection{ Naive Bayes}: 
+\subsubsection{ Naive Bayes}
 Naive Bayes is one of the model used for the classification under the``Bayesian Classifier''. In machine learning, Naive Bayes classifier are the family of simple probabilistic classifiers based on Baye's theory with the assumption of ``independence'' between the features. If the dependence between the features exists Bayesian Network will be used for the classification. The major advantage of the Naive Bayes is it's simplicity and highly scalability and ability to work on huge dataset too. Despite the oversimplified assumption, Naive Bayes have worked quite well in many complex real world situation.
 They are probabilistic, which means that they calculate the probability of each category for a given sample, and output the category with the highest one. It is comparable to the unigram language model created on each set of classes. It is widely used for text classification which used in various fields like email sorting, language detection etc. \\
 There are various variation of Naive Bayes which are:
@@ -315,7 +316,7 @@ In the project, multinomial naive bayes is used as the classifier as for persona
 %\end{itemize}
 
 \subsubsection{Multinomial Naive Bayes}
-\paragraph{Problem Formulation}\hfill 
+\paragraph{Problem Formulation}\hfill
 
 In order to understand how Naive Bayes classifiers \cite{naive} work, we have to briefly understand the concept of Bayes' rule. The probability model was formulated by Thomas Bayes.\\
 Given the set of features $(x_1,x_2,x_3,\cdots, x_n)$, \\
@@ -351,7 +352,7 @@ When $\alpha = 1 $ in \ref{eq:smooth}, it's called add one Laplace smoothing whi
 Underfitting \cite{naive} in the Naive Bayes Classifier, can occur if the probabilities result from conditional and prior are very small, in this case in order to prevent the program from underfitting, resulting from the multiplication of the very small terms, log can be used in \ref{eq:naive}, after which final equation becomes:
 
 \begin{equation}
-P(C_k|x) = \log p(C_k) + \sum_{i=1}^{k} \log(x|C_k) 
+P(C_k|x) = \log p(C_k) + \sum_{i=1}^{k} \log(x|C_k)
 \end{equation}
 which is the final equation used in the project for the classification of user's status on facebook into the personality.
 
@@ -369,7 +370,7 @@ In order to solve the above problem, conditional and prior probability is precom
 After the detection of the personality, this information is used as the metric for computation of similar user, in the recommendation engine(collaborative filtering) in order to observe it's effect on the recommendation.
 
 \subsection{Data Analysis}
-Data Analysis \cite{analysis} is a primary component of data mining and business intelligence and is key to gaining the insight that derives business decisions. Data analysis is a proven way for organizations and enterprises to gain the information they need to make better decisions, server their customers and increase productivity and revenue. Besides, with the growth of internet, there is so much of digital data and information available and data analysis has become more necessary than ever. 
+Data Analysis \cite{analysis} is a primary component of data mining and business intelligence and is key to gaining the insight that derives business decisions. Data analysis is a proven way for organizations and enterprises to gain the information they need to make better decisions, server their customers and increase productivity and revenue. Besides, with the growth of internet, there is so much of digital data and information available and data analysis has become more necessary than ever.
 Some of the data analysis techniques are:
 \begin{itemize}
 	\item Descriptive: It is analysis techniques that uses aggregation and data mining to provide insight into past and answer ``What has happend?''.It involves the calculation of simple measures of composition and distribution of variables. They are often used to describe relationship in data. Such as: total stock in inventory, average money spent per customer etc.
@@ -436,9 +437,9 @@ Knowledge based recommendation system \cite{recommend} is based on the explicit 
 \subsubsection{Utility based Recommendation}
 Utility based recommender system make recommendation based on the calculation of the utility of each item for the user. Utility based recommender techniques uses multi-attribute utility function based on item rates that user offer to describe user preferences and apply the utility function to calculate item utility for each user.
 \paragraph{Working Mechanism}\hfill
-\begin{enumerate}
-	\item Recommendation: Compute the utility of each object for the user and recommend accordingly. 
-\end{enumerate}
+\begin{itemize}
+	\item Recommendation: Compute the utility of each object for the user and recommend accordingly.
+\end{itemize}
 \paragraph{Pros}\hfill
 
 \begin{itemize}
@@ -472,16 +473,16 @@ Demographic recommendation technique \cite{demographic} uses information about t
 	\item Gathering of demographic data might lead to privacy issues.
 	\item Gray sheep problem
 	\item Stability vs Plasticity problem
-	
+
 \end{itemize}
 \subsubsection{Content based Filtering}
-Content based technique \cite{recommend} is a domain-dependent algorithm and it emphasizes more on the analysis of the attributes of items in order to generate predictions. When documents such as web pages, publications and news are to be recommended, content-based filtering technique is the most successful. In content-based filtering technique, recommendation is made on the user profiles using features extracted from the content of items the user has evaluated in the past. 
+Content based technique \cite{recommend} is a domain-dependent algorithm and it emphasizes more on the analysis of the attributes of items in order to generate predictions. When documents such as web pages, publications and news are to be recommended, content-based filtering technique is the most successful. In content-based filtering technique, recommendation is made on the user profiles using features extracted from the content of items the user has evaluated in the past.
 \paragraph{Working Mechanism}\hfill
 
 \begin{enumerate}
 	\item Item Profile Creation: Here initially, item profile is created in order with the help of it's feature. In case of movie, music meta data available can be used for item profile creation.
 	\item User Profile Creation: User profile is created, based on their interaction with the item i.e with the help of the their rating on the items. Hence user profile is created with the help of the item profile either by taking the average of item-profile or weighted average of item-profile.
-	\item Recommendation: Cosine similarity is used for the similarity computation between the user profile and the profile of items to be recommended, items with the highest similarity are recommended to the user. 
+	\item Recommendation: Cosine similarity is used for the similarity computation between the user profile and the profile of items to be recommended, items with the highest similarity are recommended to the user.
 \end{enumerate}
 
 \paragraph{Pros}\hfill
@@ -498,7 +499,7 @@ Content based technique \cite{recommend} is a domain-dependent algorithm and it 
 \end{itemize}
 Content based filtering can outperform the collaborative, whenever the the ratio of item to user is very high.
 \subsubsection{Collaborative Filtering}
-Collaborative filtering \cite{rmain}is a domain-independent prediction technique used for content that cannot easily and adequately be described by meta data such as movies and music. Collaborative filtering technique works by building a database(user-item) matrix of preference for items by users. It then matches users with relevant interest and preferences by calculating similarities between their profiles to make recommendations. Such users build a group called neighborhood. An user get recommendation to those items that he has not rated before but were already positively rated by users in his neighborhood. Recommendation that are produced by CF can be either prediction or recommendation. Prediction is a numerical value expressing $R_{ij}$, expressing the predicted score of item 'j' for the user 'i', which recommendation is a list of top N items that the user will like the most as shown in the figure below. The technique of collaborative filtering can be divided into two categories: memory based and model based. 
+Collaborative filtering \cite{rmain}is a domain-independent prediction technique used for content that cannot easily and adequately be described by meta data such as movies and music. Collaborative filtering technique works by building a database(user-item) matrix of preference for items by users. It then matches users with relevant interest and preferences by calculating similarities between their profiles to make recommendations. Such users build a group called neighborhood. An user get recommendation to those items that he has not rated before but were already positively rated by users in his neighborhood. Recommendation that are produced by CF can be either prediction or recommendation. Prediction is a numerical value expressing $R_{ij}$, expressing the predicted score of item 'j' for the user 'i', which recommendation is a list of top N items that the user will like the most as shown in the figure below. The technique of collaborative filtering can be divided into two categories: memory based and model based.
 \begin{itemize}
 	\item Memory Based:
 		This approach uses user rating data to compute the similarity between users or items. This is used for making recommendations. This was an early approach used in many commercial systems. It's effective and easy to implement. Typical examples of this approaches are neighborhood-based CF and item-based/user-based top-N recommendations. The user based top-N recommendation algorithm uses a similarity based vector model to identify the $k$ most similar users to an active user. After the $k$ msot similar users are found their corresponding user-item matrices are aggregated to identify the set of items ot be recommended.
@@ -542,13 +543,13 @@ The issues \cite{recommend} that can result in the recommendation system can be 
 \begin{enumerate}
 \item Data Collection: The data used by recommendation engines can be categorized into explicit and implicit data. Explicit is all data the user themselves feed into the system. The collection of explicit data must not be intrusive or time consuming. Implicit data source in e-commerce is the transaction data. Implicit data needs to be analyzed before it can be used to describe user features or user-item ratings.
 \item Cold Start/Ramp-Up: The cold start problem occurs when too little/no rating data is available in the initial state. The recommendation system then lack data to produce appropriate recommendations. They mostly occur in the learning models. Two cold start problems are new user problem and new item problem.
-\item Stability Vs Plasticity: The converse of the cold start problem is the stability vs plasticity. When consumers have rated so many items their preferences in the established user profiles are difficult to change. 
+\item Stability Vs Plasticity: The converse of the cold start problem is the stability vs plasticity. When consumers have rated so many items their preferences in the established user profiles are difficult to change.
 \item Sparsity: In most use cases for recommendation systems, due to the catalog sizes of e-business vendors, the count of rating already obtained is very small related to the count of ratings that need to be predicted. But collaborative filtering techiques focuses on an overlap in ratings and have difficulties when the space of rating is sparse(few user have rated the similar items). Sparsity in the user-item rating matrix degrades the quality of the recommendations.
 \item Performance and Scalability: Performance and scalability are important issues for recommendation systems as e-commerce websites must be able to determine recommendations in real-time and often deal with huge data sets of millions of users and items. The big growth rates of e-business are making the sets even larger in the user dimension.
 \item User Input Consistency: Recommendation techniques that work with user-to-user correlations like collaborative filtering or demographic, depends on more correlation coefficients between the users in a data set. Users can be categorized into three classes based on their correlation coefficients with other users. The majority of users fall into the class of ``white sheep'', where there is a high rating correlation with other users. Resulted engines can easily find recommendations for them. The opposite type is the ``black sheep'' where there are only few or no correlating users. This makes it quite difficult to find recommendations for them. The bigger problem is the ``gray sheep'' problem where users have different opinions or an unusual taste that results in low correlation coefficients with many users. They fall on a border opinions or an unusual taste that result in low correlation coefficients with many users. They fall on a border between user tastes. Recommendations for them are very difficult to find and they also cause different recommendations for their correlated users.
 \item Privacy: Privacy is an important issue in recommendation systems. To provide personalized recommendations, recommendation systems must know something regarding to users. In fact, the more the system know, the more precise the recommendation can get. Users are concerned about what information is gathered, how it is used, and if it is stored. These privacy affect both the collection of explicit and implicit data. Regarding explicit data, users are not interested to disclose information about themselves and their interests. If questionnaires get too personal, user may give false information in order to protect their privacy.
 \end{enumerate}
-\subsection{Recommendation Model for experimentation}
+\subsection{Recommendation Model for Experimentation}
 We are trying to experiment on how personality impacts on the collaborative filtering model and compare it with other some popular models(global baseline, latent factor).
 Hence the recommendation model used in the project are:
 \begin{itemize}
@@ -557,7 +558,8 @@ Hence the recommendation model used in the project are:
 \item Combination of Global Base line and user to user collaborative filtering
 \item Matrix Factorization
 \end{itemize}
-Therefore all together, 6 different recommendation model is studied in the project.
+Here all together, 8 different recommendation models are created among which 4 are created by the combination of global baseline algorithm, user to user collaborative filtering(with and without personality).
+
 \subsubsection{Global Baseline Algorithm}
 Global Baseline algorithm provides a mechanism to compute the unknown rating with baseline (i.e ``global effects'') estimates of corresponding users and items.
 Mathematically,
@@ -578,7 +580,7 @@ Suppose $\mu_x$ be the average rating of the user x and $R_{x,i}$ represents a r
 Mathematically,
 Suppose $r_a = [r_a1,r_a2,\cdots,r_an]$ be the user rating matrix of the user a and  $r_b = [r_b1,r_b2,\cdots,r_bn]$ be the user rating matrix of user b, then cosine similarity between user a and b can be obtained as:
 \begin{equation}
-	similarity_{a,b} = \frac{r_a1*r_b1 + r_a2*r_b2 +\cdots+ r_an*r_bn}{\sqrt{{r_a1}^2+{r_a2}^2+\cdots+{r_an}^2} * \sqrt{{r_b1}^2+{r_b2}^2+\cdots+{r_bn}^2} }  
+	similarity_{a,b} = \frac{r_a1*r_b1 + r_a2*r_b2 +\cdots+ r_an*r_bn}{\sqrt{{r_a1}^2+{r_a2}^2+\cdots+{r_an}^2} * \sqrt{{r_b1}^2+{r_b2}^2+\cdots+{r_bn}^2} }
 \end{equation}
 Similarly, person with similar personality is computed with the help of personality vector.
 \item Rating prediction: A rating for user $x$ on item $i$ with the help of $N$ neighbor is computed by taking the weighted average rating of the neighbors.
@@ -596,7 +598,7 @@ where,\\
 $r_{x,i}$ is the rating on item $i$ by user $x$ \\
 $baseline_{x,i}$ is the baseline estimate on item $i$ by user $x$ \\
 $baseline_{y,i}$ is the baseline estimate on item $i$ by user $y$ \\
-$s_{x,y}$ is the similarity between user $x$ and $y$ \\ 
+$s_{x,y}$ is the similarity between user $x$ and $y$ \\
 $N$ is the total neighbors used for the recommendation
 \subsubsection{Matrix Factorization}
 Matrix factorization \cite{latent} involves in a factorization of a matrix to find out tow or more matrices such that when fators are multiplied together, original matrix in obtained. In recommender system, the matrix factorization is employed to predict the missing ratings such that the values would be consistent with the existing rating in the matrix. The intuition behind using matrix factorization, is that it is assumed there should be some latent features that determine how a user rates an item. For example two users would give high rating to a certain music if they both like the singer of the music or if the music is of same genre. Hence if we can discover these latent features, we should be able to predict a rating with respect to a certain user and a certain item, because the features associated with the user should match with the features associated with the item.
@@ -617,7 +619,7 @@ In this ways each row of $P$ would represent the strength of the associations be
 Now, in order to find a way to obtain $P$ and $Q$. One way to approach this problem is first initialize the two matrices with some values, calculate how 'different' their product is to $M$, and then try to minimize this difference iteratively. Such a method is called gradient descent, aiming at finding a local minimum of the difference. The difference here, usually called the error between the estimated rating and the real rating, can be calculated by the following equation of each user-item pair:
 \begin{equation}
 \begin{split}
-	{e_{ij}}^2 & = (r_{ij} - \widehat{r_{ij}})^2 \\ 
+	{e_{ij}}^2 & = (r_{ij} - \widehat{r_{ij}})^2 \\
 	& = (r_{ij}) - {\sum_{k=1}^K} p_{ik}q_{jk})^2
 \end{split}
 \end{equation}
@@ -639,14 +641,14 @@ And,
 Now, we can formulate the update rules for both $p_{ik}$ and $q_{kj} $ as:
 \begin{equation}
 \begin{split}
-	p_{ik} &= p_{ik} + \alpha \frac{\partial {e_{ij}}^2}{\partial p_{ik}} \\ 
+	p_{ik} &= p_{ik} + \alpha \frac{\partial {e_{ij}}^2}{\partial p_{ik}} \\
 	& = p_{ik}  + 2\alpha e_{ij} q_{kj}
 \end{split}
 \end{equation}
 And,
 \begin{equation}
 \begin{split}
-	q_{ik} &= q_{ik} + \alpha \frac{\partial {e_{ij}}^2}{\partial q_{ik}} \\ 
+	q_{ik} &= q_{ik} + \alpha \frac{\partial {e_{ij}}^2}{\partial q_{ik}} \\
 	& = q_{ik}  + 2\alpha e_{ij} p_{ik}
 \end{split}
 \end{equation}
@@ -662,14 +664,14 @@ Here, the new parameter $\beta$ is used to control the magnitudes of the user=fe
 
 \begin{equation}
 \begin{split}
-	p_{ik} &= p_{ik} + \alpha \frac{\partial {e_{ij}}^2}{\partial p_{ik}} \\ 
+	p_{ik} &= p_{ik} + \alpha \frac{\partial {e_{ij}}^2}{\partial p_{ik}} \\
 	& = p_{ik}  + \alpha (2e_{ij} q_{kj} - \beta p_{ki})
 \end{split}
 \end{equation}
 And,
 \begin{equation}
 \begin{split}
-	q_{ik} &= q_{ik} + \alpha \frac{\partial {e_{ij}}^2}{\partial q_{ik}} \\ 
+	q_{ik} &= q_{ik} + \alpha \frac{\partial {e_{ij}}^2}{\partial q_{ik}} \\
 	& = q_{ik}  + \alpha (2e_{ij} p_{ik} - \beta q_{kj})
 \end{split}
 \end{equation}
