@@ -105,6 +105,8 @@ The diagram above shows the activity digram of the system. It depicts how the us
 
 \newpage
 \subsection{Data Flow Diagram}
+The figure given below is the data flow diagram of the project showing the flow of data within the system. 
+
 \begin{figure}[!ht]
 \centering
 \includegraphics[width = 16 cm]{fig/dfd.png}
@@ -112,6 +114,7 @@ The diagram above shows the activity digram of the system. It depicts how the us
 \label{fig:dfd}
 \end{figure}
 
+It is the level-1 dfd, with the two entities User and Admin. User is responsible for log in, view personality and view recommended music, all of which takes data from the user and recommendation store, to provide a data to the user. Besides admin is responsible for creating and altering models(classifier,recommender,database) all of which are reflected within the user and recommendation store.
 \newpage
 \subsection{Front End of the System(User Interface)}
 User Interface is one of the major part of the system. It is where a user will login through their facebook id in order to experience the personalized based music listening. User is able to able to view his personality via the website and also view the detailed description about the personality traits. Personality classification and music recommendation are all performed in the backend of the system. 
