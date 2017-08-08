@@ -1,0 +1,130 @@
+Letter of Approval
+----------------------------
+>> include names of internal, external and coordinator
+
+Internal Examiner
+Dr. Arun Kumar Timilsina
+Deputy Director
+Center for Applied Research and Development (CARD), Institute of Engineering, Tribhuvan University
+
+External Examiner
+Er. Mahesh Singn Kathayat
+Associate Professor, Academic Advisor
+Kathmandu Engineering College
+ 
+Coordinator
+Mrs. Bibha Sthapit
+Deputy Head of Department
+Department of Electronics and Computer Engineering, Institute of Engineering, Pulchowk Campus
+
+
+
+--------------
+Suggestions
+--------------
+
+Abstract
+-----------
+>> relationship between user personality and their behavior preferences and needs
+>> is personality traits possible
+>> impact of personality traits on collaborative filtering
+>> include "expression of thoughts and opinions are source of finding the personality traits"
+
+Introduction
+--------------
+>> personality of person can also be determined via demographic information, emotion, temperament and lifestyle. why choose music???
+>> remove "(Goldberg 1992)" from last line 
+
+Motivation
+--------------------
+>> include if there is any existing system similar to PBMRS
+
+Objective
+--------------------
+>> align numbering 
+
+Scope of Project
+----------------------
+>> not enougn content
+
+Understanding of requirement
+---------------------------------
+>> review last sentence
+
+section 3.2
+------------------------
+>> space between 'of Natural' 1st line
+
+section 3.2.5.2.2 Regularization
+-------------------------------------
+>> elaborate
+
+section 4.2.3
+------------------------
+>> economic feasibility requires figures and some calculation
+>> (but our system is free)
+
+section 4.3
+---------------------------
+>> increase image size of Scrum Software Development Cycle
+
+section 4.4
+--------------------
+>> replace numbers with words
+>> how data was collected??
+
+section 5.2
+-----------------
+>> double arrow between recommender and storage (fig edited in git)
+>> remove KNN from classifier and correct sentence
+
+section 5.3
+--------------------
+>> replace use case with latest one
+>> (description also included)
+
+section 5.4
+-----------------------
+>> justify many-to-many relation as per django standars or normalize the table
+
+section 5.6
+------------------------
+>> replace existing DFD with CONTEXT diagram and LEVEL 0 DFD (description included)
+
+section 5.7
+-------------------
+>> remove 'able to' repeat phrase
+
+section 5.8
+--------------------
+>> change 'POS' to either 'PoS' or 'Part of Speech'
+
+section 7
+--------------------
+>> RESULT -> RESULTS
+>> define confusion matrix if not defined before
+
+section 7.2
+-------------------------
+>> figure 7.2 should be before "The following table ............." line
+
+section 7.4
+---------------------
+>> center the table
+>> RMSE values should be below 1 (acc to AKT sir)
+
+just before section 8
+------------------------------
+>> which is better between U to U collaborative, U to U with user matrix , matrix factorization ---- justify well
+
+section 9 CONCLUSION
+----------------------
+>> repeatative word 'collaborative' in 3rd sentence
+>> space between personality, and i.e.
+
+references
+--------------------
+>> include retrieved date in websites (month and year)
+
+END!!!!!!!!!!!
+
