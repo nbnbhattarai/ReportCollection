@@ -178,32 +178,31 @@ The followings tables show the confusion matrix of Naive Bayes for Big Five Pers
 \subsection{Evaluation of Recommendation System}
 The following table shows RMSE of various recommendation models:
 
-\begin{center}
   \begin{table}[!h]
+	  \centering
     \begin{tabular}{| l | c |}
       \hline
       {\bf Recommendation Model} & {\bf RMSE}\\
       \hline
-      Global Baseline Algorithm & 2.86\\
+      User to User Collaborative Filtering with User & \\ Rating Matrix with combination of Global Baseline & 4.72\\
       \hline
       User to User Collaborative Filtering with User & \\ Rating Matrix & 3.89\\
       \hline
       User to User Collaborative Filtering with User & \\ Personality Matrix & 3.20\\
       \hline
-      User to User Collaborative Filtering with User & \\ Rating Matrix with combination of Global Baseline & 4.72\\
+      User to User Collaborative Filtering with Weighted & \\ Average of User Personality Matrix and User Rating Matrix & 3.2\\
       \hline
       User to User Collaborative Filtering with User & \\ Personality Matrix with combination of Global Baseline & 3.10\\
       \hline
-      User to User Collaborative Filtering with Weighted & \\ Average of User Personality Matrix and User Rating Matrix & 3.2\\
-      \hline
       User to User Collaborative Filtering with Weighted & \\ Average of User Personality Matrix and User rating Matrix & \\ with combination of Global Baseline Algorithm & 3.04\\
+      \hline
+      Global Baseline Algorithm & 2.86\\
       \hline
       Matrix Factorization & 0.88\\
       \hline
     \end{tabular}
     \caption{RMSE of Recommendation System Models}
   \end{table}
-\end{center}
 
 The following figures show effects of change in number of nearest neighborhood in the different collaborative filtering models.\\
 
