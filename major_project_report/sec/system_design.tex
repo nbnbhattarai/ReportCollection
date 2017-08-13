@@ -25,12 +25,27 @@ It is responsible for:
 			\item Stemming
 			\item Conversion of textual data to vector representation(numerical form)
 		\end{enumerate}
+The following figure depicts tasks performed within preprocessor unit within the system:
+\begin{figure}[!ht]
+\centering
+\includegraphics[width = 16 cm]{fig/preprocessing.png}
+\caption{Taks performed with preprocessor unit within the system}
+\label{fig:project}
+\end{figure}
 	\item Classifier: After the vector representation of the status update,this subsystem is responsible for personality prediction. Classifier are trained by the admin in the system using the dataset \cite{dataset} in order to predict a personality. In the project there are two classifier model used for the personality classification.\\
 They are:
 \begin{enumerate}
 	\item Naive Bayes Classifier
 	\item Logistic Regression
 \end{enumerate}
+The following figure depicts tasks performed by classifier unit within the system:
+\newpage
+\begin{figure}[!h]
+\centering
+\includegraphics[width = 16 cm]{fig/classification_block_diagram.png}
+\caption{Taks performed with classifier unit within the system}
+\label{fig:project}
+\end{figure}
 \item Music Recommender System: The system comprises of the eight models for the recommendation of the music to the user.\\
 They are:
 \begin{enumerate}
@@ -43,6 +58,21 @@ They are:
 	\item Combination of global baseline and CF with weighted average of rating and personality matrix
 	\item Matrix Factorization
 \end{enumerate}
+The following figure summarizes tasks performed by recommender unit within the system:
+\newpage
+\begin{figure}[!ht]
+\centering
+\includegraphics[width = 16 cm]{fig/recommendation_block_diagram.png}
+\caption{Taks performed with recommedation unit within the system}
+\label{fig:project}
+\end{figure}
+The following figure depicts various recommendation models used within the system:
+\begin{figure}[!ht]
+\centering
+\includegraphics[width = 16 cm]{fig/recommendation_models.png}
+\caption{Taks performed with recommedation unit within the system}
+\label{fig:project}
+\end{figure}
 \item Storage Unit/Database: It is responsible for storing of user data, music data, user-music-rating data and user-music-recommendation data made by the recommender system as well as providing recommendation based on user-feedbback. SQLite database is used as the storage unit for the project.
 \end{itemize}
 
