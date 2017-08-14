@@ -29,7 +29,7 @@ The following figure depicts tasks performed within preprocessor unit within the
 \begin{figure}[!ht]
 \centering
 \includegraphics[width = 16 cm]{fig/preprocessing.png}
-\caption{Taks performed with preprocessor unit within the system}
+\caption{Tasks performed by preprocessor unit within the system}
 \label{fig:project}
 \end{figure}
 	\item Classifier: After the vector representation of the status update,this subsystem is responsible for personality prediction. Classifier are trained by the admin in the system using the dataset \cite{dataset} in order to predict a personality. In the project there are two classifier model used for the personality classification.\\
@@ -43,7 +43,7 @@ The following figure depicts tasks performed by classifier unit within the syste
 \begin{figure}[!h]
 \centering
 \includegraphics[width = 16 cm]{fig/classification_block_diagram.png}
-\caption{Taks performed with classifier unit within the system}
+\caption{Tasks performed by classifier unit within the system}
 \label{fig:project}
 \end{figure}
 \item Music Recommender System: The system comprises of the eight models for the recommendation of the music to the user.\\
@@ -63,7 +63,7 @@ The following figure summarizes tasks performed by recommender unit within the s
 \begin{figure}[!ht]
 \centering
 \includegraphics[width = 16 cm]{fig/recommendation_block_diagram.png}
-\caption{Taks performed with recommedation unit within the system}
+\caption{Tasks performed by recommedation unit within the system}
 \label{fig:project}
 \end{figure}
 The following figure depicts various recommendation models used within the system:
@@ -78,7 +78,7 @@ The following figure depicts various recommendation models used within the syste
 
 \newpage
 \subsection{Use Case Diagram}
-A use case diagram represents user's interaction with the system that shows the relationship between the user and the different use cases in which the user is involved. A use case diagram can identify different types of users of a system, different use cases as well. A use-case diagram provides higher-level view of the system. Use case diagrams are the blueprints for the system. The use cases are shown as ovals, actors as stick people (even if they are machines), with lines (known as associations) connecting use cases to the actors who are involved with them. A box around the use cases emphasizes the boundary between the system (defined by the use cases) and the actors who are outside of the system. In our case, actor 'user' can log in to the system, allow system to access his profile information and view output or result from the system. Similar is the case for 'system' and 'sysadmin'. 
+A use case diagram represents user's interaction with the system that shows the relationship between the user and the different use cases in which the user is involved. A use case diagram can identify different types of users of a system, different use cases as well. A use-case diagram provides higher-level view of the system. Use case diagrams are the blueprints for the system. The use cases are shown as ovals, actors as stick people (even if they are machines), with lines (known as associations) connecting use cases to the actors who are involved with them. A box around the use cases emphasizes the boundary between the system (defined by the use cases) and the actors who are outside of the system. In our case, actor 'user' can log in to the system, allow system to access his profile information and view output or result from the system.% Similar is the case for 'system' and 'sysadmin'. 
 \\
 Use case diagram of the system depicting the actors and their interaction to the system is given in the figure below:
 \begin{figure}[!ht]
@@ -99,7 +99,7 @@ System is composed of ui, classifier, music recommender and storage unit.Classif
 \newpage
 \subsection{ER Diagram}
 
-An Entity-Relationship model describes inter-related things of interest in a specific domain of knowledge. In software development, ER model has become an abstract data model that defines a data/information structure that can be implemented in a database, typically a relational database. In our database, we have separate tables for user, music, recommendation and session .Each table has several attributes that best describe the table. To get required information, say we need to print details of particular user, we need to access database and more than one tables to retrieve data. We need certain relationship between each tables in our database and a common attribute to map tuples of one table to another. ER Diagram provides visual reference to complete database at one glance. We can develop database looking at the ER Diagram and later use it as reference for further improvement. 
+An Entity-Relationship model describes inter-related things of interest in a specific domain of knowledge. In software development, ER model has become an abstract data model that defines a data/information structure that can be implemented in a database, typically a relational database. In our database, we have separate tables for user, music, recommendation and session. Each table has several attributes that best describe the table. To get required information, say we need to print details of particular user, we need to access database and more than one tables to retrieve data. We need certain relationship between each tables in our database and a common attribute to map tuples of one table to another. ER Diagram provides visual reference to complete database at one glance. We can develop database looking at the ER Diagram and later use it as reference for further improvement. 
 \\
 The  ER diagram depicting the entities used in the system and relationship between them is given below:
 \begin{figure}[!ht]
@@ -116,9 +116,8 @@ The entities in the system are:
 	\item Recommendation: It consists of attributes user and music and has one to one relationship with user while many to many relationship with music.
 
 	\item User-Music: It consists of attributes user, music and rating and many to many relationship with user and music.
-\\
-System is implemented within the Django framework that provides a abstraction to the relationship within the database hence we can directly implement those relationship within the database such as one-to-one, one-to-many and many-to-many.
 \end{enumerate}
+System is implemented within the Django framework that provides a abstraction to the relationship within the database hence we can directly implement those relationship within the database such as one-to-one, one-to-many and many-to-many.
 \subsection{Activity Diagram}
 Activity Diagram describes the dynamic aspects of the system. It diagram shows user oriented view of system operation. We have made activity diagram using swim-lanes. A swim lane is a visual element that distinguishes job sharing and responsibilities for sub-processes. In our system's activity diagram, we have three swim-lanes and we have separated job/responsibilities accordingly. Each step is continuation of previous step. Decision is taken wherever necessary and fork and join is used to divide or attach work flow. The objective of making activity diagram is similar to objectives of other UML Diagrams. Only difference is that it is used to show message flow between activities.
 \newpage
@@ -142,7 +141,6 @@ A system context diagram (SCD) in engineering is a diagram that defines the boun
 \caption{Context Diagram of the System}
 \label{fig:dfd0}
 \end{figure}
-\newpage
 \subsection{Data Flow Diagram}
 A data flow diagram (DFD) is a graphical representation of the "flow" of data through an information system, modelling its process aspects. A DFD shows what kind of information will be input to and output from the system, how the data will advance through the system, and where the data will be stored. However, it does not show information about process timing or whether processes will operate in sequence or in parallel Being a UML diagram, DFD presents both control and data flows as a unified model. Given diagram is the level-0 DFD that shows internal distinct process of our system. There are four processes and a datastore which stores all data, intermediate outcomes and results. Two entities, user and sysadmin, take part in flow of data to/from these process. Each arrow head in the data flow diagram shows the direction of the data/information flow and label provide type of data/information that flows through.
 The figure given below is the data flow diagram of the project showing the flow of data within the system.
@@ -155,7 +153,7 @@ The figure given below is the data flow diagram of the project showing the flow 
 \label{fig:dfd}
 \end{figure}
 
-It is the level-1 dfd, with the two entities User and Admin. User is responsible for log in, view personality and view recommended music, all of which takes data from the user and recommendation store, to provide a data to the user. Besides admin is responsible for creating and altering models(classifier,recommender,database) all of which are reflected within the user and recommendation store.
+It is the level-0 dfd, with the two entities User and Admin. User is responsible for log in, view personality and view recommended music, all of which takes data from the user and recommendation store, to provide a data to the user. Besides admin is responsible for creating and altering models(classifier,recommender,database) all of which are reflected within the user and recommendation store.
 
 \subsection{Front End of the System(User Interface)}
 User Interface is one of the major part of the system. It is where a user will login through their Facebook id in order to experience the personalized based music listening. User is able to able to view his/her recommended music as well as personality via the website and also view the detailed description about the personality traits. Personality classification and music recommendation are all performed in the backend of the system.
